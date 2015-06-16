@@ -21,7 +21,8 @@ h1 {
 .container {
   margin-top: 20px;
 }
-.left {float: left;}
+.left {float: left;
+padding-bottom: 30px;}
 .content {
   margin-top:40px;
 }
@@ -46,4 +47,9 @@ h1 {
 dt a {
   font-size: 12pt;
   font-weight: 400;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
