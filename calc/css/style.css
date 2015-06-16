@@ -1,0 +1,93 @@
+body {
+  background: rgb(133,122,117);
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+}
+.header {
+  color:rgb(150,145,148);
+  font-size: 8pt;
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 13pt;
+  margin-bottom: -12px;
+  margin-top: -5px;
+  color: rgb(125,119,123);
+}
+.screen {
+  background: rgb(199,199,177);
+  width:188px;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+  color: rgb(84,84,84);
+  padding:2px 5px 3px 0;
+  box-shadow: inset 0px 0px 6px #888888;
+  margin-bottom: 10px;
+
+}
+.btn {
+  width: 44px;
+  height: 37px;
+  margin-top: 7px;
+   border-top: 1px solid #7b758e;
+   background: #373441;
+   background: -webkit-gradient(linear, left top, left bottom, from(#45404f), to(#373441));
+   background: -webkit-linear-gradient(top, #45404f, #373441);
+   background: -moz-linear-gradient(top, #45404f, #373441);
+   background: -ms-linear-gradient(top, #45404f, #373441);
+   background: -o-linear-gradient(top, #45404f, #373441);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   text-decoration: none;
+   vertical-align: middle;
+  box-shadow: inset 0px 1px 3px #fff;
+   }
+.btn:hover {
+   border-top-color: #554f61;
+   background: #554f61;
+   color: #ffffff;
+   }
+.btn:active {
+   border-top-color: #7c758e;
+   background: #7c758e;
+   color: white;
+   }
+.btn:focus {color: white}
+.special {
+  background: rgb(185,62,79);
+  color: white;
+}
+.special:hover {
+  background: rgb(208,110,124);
+}
+.calc {
+  width: 234px;
+  background: rgb(243,238,231);
+  padding: 20px;
+  margin: 20px auto 0 auto;  
+  -webkit-box-shadow: 
+    0 10px 5px #000, 
+    inset 0px 0px 10px #000;
+  -moz-box-shadow: 
+    0 10px 5px #000, 
+    inset 0px 0px 10px #000;
+  -o-box-shadow: 
+    0 10px 10px #000, 
+    inset 0px 0px 10px #000;
+  box-shadow: 
+    0 20px 20px #222, 
+    inset 0px 0px 10px #000;
+  
+  
+  border-radius: 10px;
+  border: 2px solid rgb(91,87,89)
+}
