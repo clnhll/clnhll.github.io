@@ -1,0 +1,46 @@
+.icon {
+  border-radius:50%;
+  width: 100%;
+}
+body {
+  font-family: 'Roboto Slab', serif;
+  background: #f3f3f3;
+  font-size: 13pt
+
+}
+a {
+  color: #f0ad4e
+}
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: #f0ad4e;
+}
+.container {
+  margin-top: 20px;
+}
+.left {float: left;}
+.content {
+  margin-top:40px;
+}
+.aside {
+  color: #000;
+}
+.openquote {
+  font-size: 90pt;
+  color: #f0ad4e;
+  line-height: 13pt;  
+  display: block;
+  margin-bottom: -35px;
+  margin-left: -25px;
+}
+.closequote {
+  font-size: 90pt;
+  color: #f0ad4e;
+  float: right;
+  margin-top: -85px;
+  margin-right: -15px;
+}
+dl {
+  font-size: 12pt;
+}
