@@ -1,0 +1,16 @@
+body {
+     font-size: 30pt;
+}
+#header {
+  margin-top: 100px;
+  margin-bottom:-30px;
+}
+#board {
+
+    line-height: 30pt;
+    width: 100%;
+  visibility: hidden;
+}
+a:hover {
+  text-decoration: none;
+}

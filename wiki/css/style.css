@@ -1,0 +1,32 @@
+body {
+  font-family: 'Verdana', sans-serif; 
+  background: #eee;
+}
+input {
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  width:245px;
+  margin:10px 0px 0px 10px;
+  padding-left:8px;
+}
+input:focus {
+    outline-width: 0;
+}
+input:focus {
+  border: 1px solid #bbb;
+}
+.searchmatch {
+  color: green;
+}
+.aresult {
+  background: white;
+  margin:10px;
+  padding:10px;
+  border-radius:4px;
+}
+.aresult:hover {
+  background: #f9f9f9;
+  border-left: solid 2px #ddd;
+  
+  padding-left:8px;
+}
