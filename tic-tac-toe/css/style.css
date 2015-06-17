@@ -14,3 +14,9 @@ body {
 a:hover {
   text-decoration: none;
 }
+.tile {
+  cursor: pointer;
+}
+#x, #o {
+  cursor:pointer;
+}

@@ -232,7 +232,7 @@ $(document).ready(function(){
    if (findWin()) {
       setTimeout(function(){
         //alert("game over! you lost, sorry"); 
-        $(".tile").text("⬜️");
+        $(".tile").text("◻️");
         movesLeft = [0,1,2,3,4,5,6,7,8];
         compMoves = [];
         userMoves = [];
