@@ -4,7 +4,7 @@
 }
 body {
   font-family: 'Roboto Slab', serif;
-  background: #f7f7f7;
+  background: #f3f3f3;
   font-size: 13pt;
 }
 a {
@@ -55,4 +55,9 @@ dt {
   display: inline-block;
   vertical-align: middle;
   float: none;
+}
+.preview {
+  display: inline-block;
+  top: 0;
+  position: relative;
 }
