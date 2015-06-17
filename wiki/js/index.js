@@ -59,7 +59,7 @@ $(document).ready(function() {
   
   $(".search").livesearch({
 				searchCallback: searchFunction,    
-        queryDelay: 0,                        // took all this for livesearch from 
+        queryDelay: 200,                        // took all this for livesearch from 
         minimumSearchLength: 0,               // http://jherrm.com/livesearch/
         innerText: "Search Wikipedia"                         
   });
