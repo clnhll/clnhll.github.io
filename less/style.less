@@ -1,5 +1,8 @@
+@accent: rgb(256,140,150);
+
+// bootstrap warning color: #f0ad4e;
 .icon {
-  border-radius: 50%;
+  border-radius:50%;
   width: 100%;
 }
 body {
@@ -8,41 +11,39 @@ body {
   font-size: 13pt;
 }
 a {
-  color: #ff8c96;
+  color: @accent;
   font-weight: 400;
 }
 a:hover {
-  color: #ff8c96;
+  color: @accent;
 }
 h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
-  color: #ff8c96;
+  color: @accent;
 }
 .container {
   margin-top: 20px;
 }
-.left {
-  float: left;
-  padding-bottom: 30px;
-}
+.left {float: left;
+padding-bottom: 30px;}
 .content {
-  margin-top: 40px;
+  margin-top:40px;
 }
 .aside {
   color: #000;
 }
 .openquote {
   font-size: 90pt;
-  color: #ff8c96;
-  line-height: 13pt;
+  color: @accent;
+  line-height: 13pt;  
   display: block;
   margin-bottom: -35px;
   margin-left: -25px;
 }
 .closequote {
   font-size: 90pt;
-  color: #ff8c96;
+  color: @accent;
   float: right;
   margin-top: -85px;
   margin-right: -15px;
@@ -52,7 +53,7 @@ dt {
   font-weight: 400;
 }
 .vcenter {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
