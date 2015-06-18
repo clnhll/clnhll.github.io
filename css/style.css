@@ -52,10 +52,23 @@ dt {
   font-size: 12pt;
   font-weight: 400;
 }
-.vcenter {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
+@media only screen and (max-width: 992px) {
+  .vcenter {
+    display: block;
+    vertical-align: middle;
+    top: 50%;
+    transform: translateY(50%);
+    position: relative;
+  }
+}
+@media only screen and (max-device-width: 736px) {
+  .vcenter {
+    display: block;
+    vertical-align: middle;
+    top: 50%;
+    transform: translateY(50%);
+    position: relative;
+  }
 }
 .preview {
   display: inline-block;
@@ -66,4 +79,7 @@ dt {
 }
 .preview:hover {
   border: 2px solid #ff8c96;
+}
+.footer {
+  color: #ccc;
 }
