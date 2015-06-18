@@ -27,7 +27,7 @@ h1 {
 }
 .left {
   float: left;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   position: relative;
 }
 .content {
@@ -63,12 +63,16 @@ and (max-width : 992px) {
   display: block;
   vertical-align: middle;
   transform: translateY(50%);
-  position: relative; 
+  position: relative;
+  }
+  .left {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
   }
 }
 
 @media only screen 
-and (min-device-width : 414px) 
+and (min-device-width : 500px)
 and (max-device-width: 736px) { 
   .vcenter {
   display: block;
@@ -77,18 +81,54 @@ and (max-device-width: 736px) {
   //transform: translateY(50%);
   position: relative; 
   }
+  .left {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+  }
 }
-
 @media only screen 
-and (max-width : 413px) 
+and (min-width : 500px)
+and (max-width: 736px) { 
+  .vcenter {
+  display: block;
+  vertical-align: middle;
+  top:50%;
+  //transform: translateY(50%);
+  position: relative; 
+  }
+  .left {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+  }
+}
+@media only screen 
+and (max-width : 414px) 
 { 
   body {
     font-size: 11pt;
   }
   h1 {
-    font-size: 15pt;
+    font-size: 13pt;
   }
-
+    .left {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+  }
+}
+@media only screen 
+and (min-width : 415px)
+and (max-width : 499px) 
+{ 
+  body {
+    font-size: 12pt;
+  }
+  h1 {
+    //font-size: pt;
+  }
+    .left {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+  }
 }
 
 .preview {
