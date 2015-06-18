@@ -25,8 +25,11 @@ h1 {
 .container {
   margin-top: 20px;
 }
-.left {float: left;
-padding-bottom: 30px;}
+.left {
+  float: left;
+  padding-bottom: 30px;
+  position: relative;
+}
 .content {
   margin-top:40px;
 }
@@ -54,23 +57,24 @@ dt {
   font-weight: 400;
 }
 @media only screen 
+and (min-width: 531px)  
 and (max-width : 992px) { 
   .vcenter {
   display: block;
   vertical-align: middle;
-  top:50%;
   transform: translateY(50%);
   position: relative; 
   }
 }
 
 @media only screen 
-and (max-device-width : 736px) { 
+and (min-device-width : 414px) 
+and (max-device-width: 736px) { 
   .vcenter {
   display: block;
   vertical-align: middle;
   top:50%;
-  transform: translateY(50%);
+  //transform: translateY(50%);
   position: relative; 
   }
 }
