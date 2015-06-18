@@ -1,22 +1,31 @@
 body {
-     font-size: 30pt;
+  font-size: 40px;
 }
 #header {
-  margin-top: 100px;
-  margin-bottom:-30px;
+  margin-top: 80px;
 }
 #board {
-
-    line-height: 30pt;
-    width: 100%;
   visibility: hidden;
+  line-height: 100%;
 }
 a:hover {
   text-decoration: none;
 }
 .tile {
   cursor: pointer;
+  display: inline;
 }
 #x, #o {
-  cursor:pointer;
+  cursor: pointer;
+}
+@media only screen 
+and (max-device-width : 414px)
+ { 
+  body {
+    font-size: 16px !important;
+  }
+   #board {
+    line-height: 20px !important;
+
+  }
 }
