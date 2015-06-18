@@ -69,6 +69,14 @@ dt {
     position: relative;
   }
 }
+@media only screen and (max-width: 414px) {
+  body {
+    font-size: 11pt;
+  }
+  h1 {
+    font-size: 15pt;
+  }
+}
 .preview {
   display: inline-block;
   top: 0;
