@@ -45,16 +45,15 @@ function tempCIcon(temp) {
 }
 function setBG(bg) {
   if (bg=="cold") {
-    $("body").css("background","url(http://upload.wikimedia.org/wikipedia/commons/d/d6/Field-with-snow-champ-enneige.jpg) ");
+    $("body").css("background","url(http://clnhll.com/weather/cold.jpg) ");
     $("body").css("background-size","cover");
   } else if (bg=="hot") {
-    $("body").css("background","url(http://www.kalapanaculturaltours.com/Blog/wp-content/uploads/2013/09/IMG_2096.jpg) no-repeat");
+    $("body").css("background","url(http://clnhll.com/weather/hot.jpg) no-repeat");
     $("body").css("background-size","cover");
   } else {
-    $("body").css("background","url(http://www.theconstantrambler.com/wp-content/uploads/2013/08/Hawaii-Pic.jpg)");
+    $("body").css("background","url(http://clnhll.com/weather/mild.jpg)");
     $("body").css("background-size","cover");
   }
-  
 }
 function getCardinal(deg) {
   if (deg <11.25 && deg > 348.75) {
