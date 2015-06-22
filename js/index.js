@@ -1,5 +1,5 @@
 var counter=0;
-var colors=['rgb(256,140,150)','#f0ad4e'];
+var colors=['#f0ad4e','rgb(256,140,150)'];
 function changeColor(){
   if (counter>colors.length-1) 
   {counter=0;}
@@ -9,4 +9,8 @@ function changeColor(){
   counter++; 
   less.refreshStyles();
   console.log(counter);
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
