@@ -8,7 +8,6 @@ function changeColor(){
     });
   counter++; 
   less.refreshStyles();
-  console.log(counter);
 }
 
 function getRandomArbitrary(min, max) {
