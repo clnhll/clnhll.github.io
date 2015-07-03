@@ -10,7 +10,3 @@ function changeColor(){
   counter++; 
   less.refreshStyles();
 }
-
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
