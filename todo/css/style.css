@@ -1,0 +1,40 @@
+.clean {
+  text-align: left;
+  position: relative;
+}
+.clean:hover {
+  text-decoration: line-through;
+  color: #999;
+  -webkit-transition: linear all .5s;
+  transition: linear all .5s;
+}
+.strike {
+  text-decoration: line-through;
+  -webkit-transition: linear all .5s;
+  transition: linear all .5s;
+  text-align: left;
+  position: relative;
+}
+.check {
+  position: relative;
+  display: inline-block;
+  margin-top:10px
+}
+
+ul[dnd-list], ul[dnd-list] > li { 
+    position: relative;
+}
+ul[dnd-list] .dndDraggingSource {
+    opacity:.5;
+}
+.topShadow {
+  box-shadow: inset 0px 5px 5px -5px #b8b8b8;
+
+}
+.bottomShadow {
+  box-shadow: inset 0px -5px 5px -5px #b8b8b8;
+}
+.bothShadow {
+  box-shadow: inset 0px -5px 5px -5px #b8b8b8, inset 0px 5px 5px -5px #b8b8b8;
+
+}

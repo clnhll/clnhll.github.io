@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html manifest="example.appcache">
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular Material Todo Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,user-scalable=no">
+    
+    
+    <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/angular-material/0.7.0-rc3/angular-material.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div ng-app="MyApp"> 
+  <div ng-controller="MainCtrl" style="padding-top:20px">
+    <md-card style="margin: 0 20px 20px 20px">
+      <md-content style="padding: 10px 24px 0 24px" layout-padding>
+        
+      <form ng-submit="addItem()">
+        <div layout>
+        <md-input-container flex>
+          <label>New item...</label>
+          <input type="text" ng-model="inputItem">
+        </md-input-container>
+          <md-button class="md-raised md-primary" 
+                     type="submit" 
+                     style="width:20%; height: 45px; margin: 5px 0 10px 0; margin-left:10px">add</md-button>
+        </div>
+        <md-input-container flex>
+          <label>Live search...</label><input type="text" ng-model="myFilter.name">
+        </md-input-container>
+      </form>
+      </md-content >
+      <md-content id="listcontent" layout-padding scroll
+                  style="max-height:325px; overflow: scroll; padding: 0 24px 0 24px"
+                  class="{{scrollClasses}}"> 
+
+      <!-- <div ng-repeat="item in list | filter:myFilter track by $index" class="listItem"> !-->
+        <ul style="list-style-type:none; padding: 0; margin: 0" 
+            dnd-list="list" ng-mouseup="updateCompleted()"
+            >
+          <!-- track by $index  !-->
+          <li 
+              ng-repeat="item in list | filter:myFilter track by $index" 
+              ng-click=""
+              dnd-draggable="item"
+              dnd-moved="list.splice($index, 1); updateCompleted()"
+              dnd-effect-allowed="move"
+              dnd-selected="models.selected = item"
+              ng-class="{'selected': models.selected === item}">
+
+            <div layout>
+              <md-button md-no-ink class="md-icon-button" aria-label="More" ng-click="deleteItem($index)"><i class="fa fa-close"></i></md-button> 
+
+
+              <md-button md-no-ink class="listItem" ng-class="{strike: item.completed, clean: !item.completed}" ng-click="item.completed=!item.completed;  updateCompleted()" flex>{{ item.name }}</md-button>
+
+              <md-checkbox ng-model="item.completed" class="check" ng-click="updateCompleted()" aria-label="checkbox"></md-checkbox>
+            </div>
+
+          </li>
+        </ul>
+        </md-content>
+        <div class="md-actions" layout="row" layout-align="end center" style="padding:24px">
+          <md-button class="md-primary" ng-click="clear()">clear completed</md-button>
+        </div>
+      </md-card>
+  </div>
+</div>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js'></script>
+<script src='http://marceljuenemann.github.io/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
