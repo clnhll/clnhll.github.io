@@ -1,6 +1,7 @@
 .clean {
   text-align: left;
   position: relative;
+  overflow: scroll;
 }
 .clean:hover {
   background: none !important;

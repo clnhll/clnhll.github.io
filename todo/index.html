@@ -44,7 +44,7 @@
             >
           <!-- track by $index  !-->
           <li
-              ng-repeat="item in list | filter:myFilter" 
+              ng-repeat="item in list | filter:myFilter"
               ng-click=""
               dnd-draggable="item"
               dnd-moved="list.splice($index, 1); updateCompleted()"
