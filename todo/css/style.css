@@ -37,3 +37,6 @@ ul[dnd-list] .dndDraggingSource {
 .bothShadow {
   box-shadow: inset 0px -5px 5px -5px #b8b8b8, inset 0px 5px 5px -5px #b8b8b8;
 }
+md-dialog {
+  padding:0 24px;
+}

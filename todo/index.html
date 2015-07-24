@@ -5,46 +5,46 @@
     <title>Angular Material Todo Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width,user-scalable=no">
-    
-    
+
+
     <link rel='stylesheet prefetch' href='css/angular-material.min.css'>
     <link rel="stylesheet" href="css/style.css">
-    
   </head>
 
   <body>
 
-    <div ng-app="MyApp"> 
+    <div ng-app="MyApp">
   <div ng-controller="MainCtrl" style="padding-top:20px">
+
     <md-card style="margin: 0 20px 20px 20px">
       <md-content style="padding: 10px 24px 0 24px" layout-padding>
-        
       <form ng-submit="addItem()">
         <div layout>
         <md-input-container flex>
           <label>New item...</label>
           <input type="text" ng-model="inputItem">
         </md-input-container>
-          <md-button class="md-raised md-primary" 
-                     type="submit" 
+          <md-button class="md-raised md-primary"
+                     type="submit"
                      style="width:20%; height: 45px; margin: 5px 0 10px 0; margin-left:10px">add</md-button>
         </div>
         <md-input-container flex>
           <label>Live search...</label><input type="text" ng-model="myFilter.name">
         </md-input-container>
+
       </form>
       </md-content >
       <md-content id="listcontent" layout-padding scroll
                   style="max-height:325px; overflow: scroll; padding: 0 24px 0 24px"
-                  class="{{scrollClasses}}"> 
+                  class="{{scrollClasses}}">
 
       <!-- <div ng-repeat="item in list | filter:myFilter track by $index" class="listItem"> !-->
-        <ul style="list-style-type:none; padding: 0; margin: 0" 
+        <ul style="list-style-type:none; padding: 0; margin: 0"
             dnd-list="list" ng-mouseup="updateCompleted()"
             >
           <!-- track by $index  !-->
-          <li 
-              ng-repeat="item in list | filter:myFilter track by $index" 
+          <li
+              ng-repeat="item in list | filter:myFilter" 
               ng-click=""
               dnd-draggable="item"
               dnd-moved="list.splice($index, 1); updateCompleted()"
@@ -53,7 +53,7 @@
               ng-class="{'selected': models.selected === item}">
 
             <div layout>
-              <md-button md-no-ink class="md-icon-button" aria-label="More" ng-click="deleteItem($index)" style="font-size:15pt; color: crimson; opacity: .8; font-weight: bold">&#x2298;</md-button> 
+              <md-button md-no-ink class="md-icon-button" aria-label="More" ng-click="deleteItem($index)" style="font-size:15pt; color: crimson; opacity: .8; font-weight: bold">&#x2298;</md-button>
 
 
               <md-button md-no-ink class="listItem" ng-class="{strike: item.completed, clean: !item.completed}" ng-click="item.completed=!item.completed;  updateCompleted()" flex>{{ item.name }}</md-button>
@@ -64,21 +64,26 @@
           </li>
         </ul>
         </md-content>
-        <div class="md-actions" layout="row" layout-align="end center" style="padding:24px">
+        <div class="md-actions" layout="row" layout-align=" center" style="padding:24px; width:100%">
+
+          <span flex></span>
+          <md-button class="md-primary" ng-click="showAlert($event)">
+        INFO
+          </md-button> &nbsp;
           <md-button class="md-primary" ng-click="clear()">clear completed</md-button>
         </div>
       </md-card>
   </div>
 </div>
-	<script src='js/angular.min.js'></script>
-	<script src='js/angular-material.min.js'></script>
-	<script src='js/angular-animate.min.js'></script>
-	<script src='js/angular-aria.min.js'></script>
-	<script src='js/angular-drag-and-drop-lists.js'></script>
-	<script src="js/index.js"></script>
+<script src='js/angular.min.js'></script>
+<script src='js/angular-material.min.js'></script>
+<script src='js/angular-animate.min.js'></script>
+<script src='js/angular-aria.min.js'></script>
+<script src='js/angular-drag-and-drop-lists.js'></script>
+<script src="js/index.js"></script>
 
-    
-    
-    
+
+
+
   </body>
 </html>
