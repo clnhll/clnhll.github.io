@@ -68,7 +68,7 @@ $scope.showAlert = function(ev) {
       $mdDialog.alert()
         .parent(angular.element(document.body))
         .title('Angular Material To-Do')
-        .content('This project was  a way for me to learn Angular Material, drag-and-drop reordering, app caching and local storage. Try re-ordering your to-do list or refreshing the page while offline! Your list and this page will persist until you clear your browsing data!')
+        .content('This project was  a way for me to learn Angular Material, drag-and-drop reordering, app caching and local storage. Try re-ordering your to-do list (desktop only, sorry) or refreshing the page while offline! Your list and this page will persist until you clear your browser data.')
         .ariaLabel('App Info')
         .ok('Got it!')
         .targetEvent(ev)
@@ -86,26 +86,22 @@ $scope.showAlert = function(ev) {
 angular.module('MyApp').directive("scroll", function() {
   return function(scope, element, attrs) {
     angular.element(element).bind("scroll mousemove DOMNodeInserted DOMNodeRemoved cached", function() {
-      if (this.scrollTop !== 0 &&
-          this.scrollHeight - this.scrollTop !==
-          this.clientHeight) {
+      if (this.scrollTop > 3 &&
+          this.scrollHeight - this.scrollTop - this.clientHeight >
+          3) {
         scope.scrollClasses='bothShadow';
-        scope.$apply();
       } else if (this.scrollTop === 0 &&
           this.scrollHeight - this.scrollTop ===
           this.clientHeight) {
         scope.scrollClasses='';
-        scope.$apply();
-      } else if (this.scrollTop === 0 &&
+      } else if (this.scrollTop <= 0 &&
           this.scrollHeight - this.scrollTop !==
           this.clientHeight){
         scope.scrollClasses='bottomShadow';
-        scope.$apply();
-      } else if (this.scrollTop !== 0 &&
-          this.scrollHeight - this.scrollTop ===
+      } else if (this.scrollTop > 0 &&
+          this.scrollHeight - this.scrollTop <=
           this.clientHeight){
         scope.scrollClasses='topShadow';
-        scope.$apply();
       }
       scope.$apply();
     });
