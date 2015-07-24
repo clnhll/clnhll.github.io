@@ -53,8 +53,7 @@
               ng-class="{'selected': models.selected === item}">
 
             <div layout>
-              <md-button md-no-ink class="md-icon-button" aria-label="More" ng-click="deleteItem($index)" style="font-size:10pt; color: crimson; opacity: .7; font-weight: bold">&#x2716;</md-button> 
-
+              <md-button md-no-ink class="md-icon-button" aria-label="More" ng-click="deleteItem($index)" style="font-size:10pt; color: crimson !important; opacity: .8; font-weight: bold">&#x2715	</md-button>
 
               <md-button md-no-ink class="listItem" ng-class="{strike: item.completed, clean: !item.completed}" ng-click="item.completed=!item.completed;  updateCompleted()" flex>{{ item.name }}</md-button>
 
