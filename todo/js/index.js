@@ -78,11 +78,11 @@
         title: 'Todo',
         items: [
           {
-            name:'stuff',
+            name:'Watch xena',
             completed: false
           },
           {
-            name:'shut up',
+            name:'Get a new backpack',
             completed: true
           }]
         }];
