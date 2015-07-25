@@ -1,46 +1,84 @@
+.tabsdemoDynamicTabs md-content {
+  background-color: transparent !important; }
+.tabsdemoDynamicTabs md-content md-tabs {
+  border: 1px solid #e1e1e1; }
+.tabsdemoDynamicTabs md-content md-tabs md-tab-content {
+  background: #f6f6f6; }
+.tabsdemoDynamicTabs md-content md-tabs md-tabs-canvas {
+  background: white; }
+.tabsdemoDynamicTabs md-content h1:first-child {
+  margin-top: 0; }
+.tabsdemoDynamicTabs md-input-container {
+  padding-bottom: 0; }
+.tabsdemoDynamicTabs .remove-tab {
+  margin-bottom: 40px; }
+.tabsdemoDynamicTabs .demo-tab > div > div {
+  padding: 25px;
+  box-sizing: border-box; }
+.tabsdemoDynamicTabs .edit-form input {
+  width: 100%; }
+.tabsdemoDynamicTabs md-tabs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+.tabsdemoDynamicTabs md-tab[disabled] {
+  opacity: 0.5; }
+.tabsdemoDynamicTabs label {
+  text-align: left; }
+.tabsdemoDynamicTabs .long > input {
+  width: 264px; }
+.tabsdemoDynamicTabs .md-button.add-tab {
+  transform: translateY(5px); }
+
+
 .clean {
-  text-align: left;
-  position: relative;
-  overflow: scroll;
-}
-.clean:hover {
-  background: none !important;
-  color: black;
-}
-.strike {
-  text-decoration: line-through;
-  -webkit-transition: linear all .5s;
-  transition: linear all .5s;
-  text-align: left;
-  position: relative;
-  overflow: scroll;
-}
-.strike:hover {
-  background: none !important;
-  color: black;
-}
-.check {
-  position: relative;
-  display: inline-block;
-  margin-top:10px
-}
-
-ul[dnd-list], ul[dnd-list] > li {
+    text-align: left !important;
     position: relative;
-}
-ul[dnd-list] .dndDraggingSource {
-    opacity:.5;
-}
-.topShadow {
-  box-shadow: inset 0px 5px 5px -5px #b8b8b8;
+    text-overflow: ellipsis;
+  }
+.clean:hover {
+    background: none !important;
+    color: black;
+  }
+ .strike {
+    text-decoration: line-through !important;
+    -webkit-transition: linear all .5s;
+    transition: linear all .5s;
+    text-align: left;
+    position: relative;
+    text-overflow: ellipsis;
+  }
+.strike:hover {
+    background: none !important;
+    color: black;
+    text-decoration: line-through;
 
-}
-.bottomShadow {
-  box-shadow: inset 0px -5px 5px -5px #b8b8b8;
-}
-.bothShadow {
-  box-shadow: inset 0px -5px 5px -5px #b8b8b8, inset 0px 5px 5px -5px #b8b8b8;
-}
-md-dialog {
-  padding:0 24px;
-}
+  }
+  .check {
+    position: relative;
+    display: inline-block;
+    margin-top:10px
+  }
+
+  ul[dnd-list], ul[dnd-list] > li {
+      position: relative;
+  }
+  ul[dnd-list] .dndDraggingSource {
+      opacity:.5;
+  }
+
+  md-dialog md-dialog-content {
+    padding:24px 24px 0 24px !important;
+    line-height: 20pt !important;
+  }
+  md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+      min-height: 500px !important;
+  }
+  .md-button.md-icon-button {
+      margin: 0 0px;
+      height: 25px;
+      min-width: 0;
+      line-height: 48px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 25px;
+      border-radius: 50%;
+  }

@@ -1,110 +1,117 @@
-angular.module('MyApp',['ngMaterial','dndLists']);
+(function () {
+  'use strict';
+  angular
+      .module('MyApp',['ngMaterial','dndLists'])
+      .controller('AppCtrl', AppCtrl);
 
-/**
-* This service deals with local storage,
-* plays nicely with browsers that don't
-* support local storage
-**/
-
-angular.module('MyApp').service('local',[function(){
-  this.get=function(){
-    if (localStorage !== null) {
-      return localStorage.getItem('list')!==null ? JSON.parse(localStorage.getItem('list')) : [];
-    } else {
-      return [];
+  function AppCtrl ($scope, $log, $mdDialog, local) {
+    $scope.lists=local.get(),
+    $scope.selectedIndex = local.getTab();
+    $scope.saveTab = function() {
+      local.setTab($scope.selectedIndex);
     }
-  };
-  this.set=function(list) {
-    if (localStorage !== null) {
-      localStorage.setItem('list',JSON.stringify(list));
+
+    $scope.addTab = function () {
+      $scope.lists.push({ title: $scope.tTitle, items: [], disabled: false});
+      local.set($scope.lists)
+      $scope.tTitle="";
+    };
+    $scope.removeTab = function (tab) {
+      var index = $scope.lists.indexOf(tab);
+      $scope.lists.splice(index, 1);
+      local.set($scope.lists);
+    };
+
+    $scope.scrollClasses='';
+    $scope.inputItem=[];
+    $scope.addItem=function(listIndex){
+      if ($scope.inputItem[listIndex]=="") {return}
+      $scope.lists[listIndex].items.push({
+        name: $scope.inputItem[listIndex],
+        completed: false
+      });
+      local.set($scope.lists);
+      $scope.inputItem[listIndex]='';
     }
+
+    $scope.updateCompleted = function() {
+      local.set($scope.lists);
+    }
+
+    $scope.clear=function(index) {
+      for (var i=0; i < $scope.lists[index].items.length; i++) {
+        if ($scope.lists[index].items[i].completed) {
+          $scope.lists[index].items[i]=null;
+        }
+      }
+      $scope.lists[index].items = $scope.lists[index].items.filter(function(item) {return item!==null});
+      local.set($scope.lists);
+    }
+
+    $scope.deleteItem=function(listIndex,itemIndex) {
+      $scope.lists[listIndex].items.splice(itemIndex,1);
+      local.set($scope.lists);
+    }
+
+    $scope.update = function(){local.set($scope.lists);}
+
+  $scope.showAlert = function(ev) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      // Modal dialogs should fully cover application
+      // to prevent interaction outside of dialog
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.body))
+          .title('Angular Material To-Do')
+          .content('This project was  a way for me to learn Angular Material, drag-and-drop reordering, app caching and local storage. Try re-ordering your to-do list (desktop only, sorry) or refreshing the page while offline! Your list and this page will persist until you clear your browser data.')
+          .ariaLabel('App Info')
+          .ok('Got it!')
+          .targetEvent(ev)
+      );
+    };
+
   }
-}]);
 
-/**
-* Main app controller that does the
-* add/remove/update logic
-**/
+  angular.module('MyApp').service('local',[function(){
+    this.get=function(){
+      var defaultList = [{
+        title: 'Todo',
+        items: [
+          {
+            name:'stuff',
+            completed: false
+          },
+          {
+            name:'shut up',
+            completed: true
+          }]
+        }];
 
-angular.module('MyApp').controller('MainCtrl',['$scope','$mdDialog','$animate','local',function($scope, $mdDialog, $animate, local, lists){
-  $scope.scrollClasses='';
-  $scope.list=local.get();
-  $scope.addItem=function(){
-    if ($scope.inputItem=="") {return}
-    $scope.list.push({
-      name: $scope.inputItem,
-      completed: false
-    });
-    local.set($scope.list);
-    $scope.inputItem='';
-  }
-
-  $scope.updateCompleted = function(index) {
-    local.set($scope.list);
-  }
-
-  $scope.clear=function() {
-    for (var i=0; i < $scope.list.length; i++) {
-      if ($scope.list[i].completed) {
-        $scope.list[i]=null;
+      if (localStorage !== null) {
+        return localStorage.getItem('lists')!==null ? JSON.parse(localStorage.getItem('lists')) : defaultList;
+      } else {
+        return defaultList;
+      }
+    };
+    this.set=function(lists) {
+      if (localStorage !== null) {
+        localStorage.setItem('lists',JSON.stringify(lists));
       }
     }
-    $scope.list = $scope.list.filter(function(item) {return item!==null});
-    local.set($scope.list);
-  }
-
-  $scope.deleteItem=function(index) {
-    $scope.list.splice(index,1);
-    local.set($scope.list);
-  }
-
-  $scope.update = function(){local.set($scope.list);}
-
-$scope.showAlert = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    // Modal dialogs should fully cover application
-    // to prevent interaction outside of dialog
-    $mdDialog.show(
-      $mdDialog.alert()
-        .parent(angular.element(document.body))
-        .title('Angular Material To-Do')
-        .content('This project was  a way for me to learn Angular Material, drag-and-drop reordering, app caching and local storage. Try re-ordering your to-do list (desktop only, sorry) or refreshing the page while offline! Your list and this page will persist until you clear your browser data.')
-        .ariaLabel('App Info')
-        .ok('Got it!')
-        .targetEvent(ev)
-    );
-  };
-}]);
-
-/**
-* This directive is a work in progress.
-* Trying to construct some visual hints
-* that there's more content, based on user
-* scroll position
-**/
-
-angular.module('MyApp').directive("scroll", function() {
-  return function(scope, element, attrs) {
-    angular.element(element).bind("scroll mousemove DOMNodeInserted DOMNodeRemoved cached", function() {
-      if (this.scrollTop > 3 &&
-          this.scrollHeight - this.scrollTop - this.clientHeight >
-          3) {
-        scope.scrollClasses='bothShadow';
-      } else if (this.scrollTop === 0 &&
-          this.scrollHeight - this.scrollTop ===
-          this.clientHeight) {
-        scope.scrollClasses='';
-      } else if (this.scrollTop <= 0 &&
-          this.scrollHeight - this.scrollTop !==
-          this.clientHeight){
-        scope.scrollClasses='bottomShadow';
-      } else if (this.scrollTop > 0 &&
-          this.scrollHeight - this.scrollTop <=
-          this.clientHeight){
-        scope.scrollClasses='topShadow';
+    this.getTab = function() {
+      if (localStorage !== null) {
+        return localStorage.getItem('savedTab')!==null ? JSON.parse(localStorage.getItem('savedTab')) : 0;
+      } else {
+        return 0;
       }
-      scope.$apply();
-    });
+    }
+    this.setTab = function(tab) {
+      if (localStorage !== null) {
+        localStorage.setItem('savedTab',JSON.stringify(tab));
+      }
+    }
 
-  };
-});
+  }]);
+
+
+})();

@@ -1,12 +1,14 @@
 CACHE MANIFEST
-# v7 - 2015
+# v1 - 2015
 http://clnhll.com/todo/index.html
 http://clnhll.com/todo/css/angular-material.min.css
 http://clnhll.com/todo/css/style.css
 http://clnhll.com/todo/example.appcache
-http://clnhll.com/todo/js/angular.min.js
+http://clnhll.com/todo/js/angular.js
 http://clnhll.com/todo/js/angular-animate.min.js
+http://clnhll.com/todo/js/angular-messages.min.js
 http://clnhll.com/todo/js/angular-aria.min.js
-http://clnhll.com/todo/js/angular-material.min.js
+http://clnhll.com/todo/js/angular-material.js
+http://clnhll.com/todo/js/assets-cache.js
 http://clnhll.com/todo/js/angular-drag-and-drop-lists.js
 http://clnhll.com/todo/js/index.js
