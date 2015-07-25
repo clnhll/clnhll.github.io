@@ -10,7 +10,7 @@
 
 
 
-    <link rel='stylesheet prefetch' href='css/angular-material.css'>
+    <link rel='stylesheet prefetch' href='css/angular-material.min.css'>
 
         <link rel="stylesheet" href="css/style.css">
 
@@ -89,24 +89,24 @@
     <div layout="row" layout-sm="column">
       <span flex></span>
 
-      <md-input-container style="width:50%">
+      <md-input-container flex>
         <label>New list name...</label>
         <input type="text" ng-model="tTitle">
       </md-input-container>
 
-      <md-button class="add-tab md-primary md-raised" ng-disabled="!tTitle" type="submit" style="margin-right: 0;">New List</md-button>
+      <md-button class="add-tab md-primary md-raised" ng-disabled="!tTitle" type="submit">New List</md-button>
     </div>
   </form>
   <md-button class="md-fab md-primary md-fab-top-right" ng-click="showAlert($event)">
   INFO
   </md-button>
 </div>
-  <script src='js/angular.js'></script>
+  <script src='js/angular.min.js'></script>
   <script src='js/angular-animate.min.js'></script>
   <script src='js/angular-route.min.js'></script>
   <script src='js/angular-aria.min.js'></script>
   <script src='js/angular-messages.min.js'></script>
-  <script src='js/angular-material.js'></script>
+  <script src='js/angular-material.min.js'></script>
   <script src='js/assets-cache.js'></script>
   <script src='js/angular-drag-and-drop-lists.js'></script>
   <script src="js/index.js"></script>

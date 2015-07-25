@@ -78,7 +78,7 @@
         title: 'Todo',
         items: [
           {
-            name:'Watch xena',
+            name:'Watch Xena: warrior princess',
             completed: false
           },
           {
