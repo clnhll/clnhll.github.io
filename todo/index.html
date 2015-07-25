@@ -22,11 +22,11 @@
   <body>
 
     <div class="tabsdemoDynamicTabs" layout="column" >
-  <md-content class="md-padding">
+  <md-content style="padding:5px;" class="containerPlace">
     <md-tabs md-selected="selectedIndex" md-border-bottom="" md-autoselect="" ng-click="saveTab(selectedIndex)">
       <md-tab ng-repeat="list in lists  track by $index " ng-disabled="list.disabled" label="{{list.title}}" >
-        <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-          <md-card style="margin: 0 20px 20px 20px">
+        <div class="demo-tab tab{{$index%4}}" style=" padding: 10px;text-align: center;height: auto;">
+          <md-card>
             <md-content style="padding: 10px 24px 0 24px" layout-padding>
             <form ng-submit="addItem($index)">
               <div layout>
@@ -45,14 +45,14 @@
             </form>
             </md-content >
             <md-content id="listcontent" layout-padding
-                        style="overflow: scroll; max-height: 400px; padding: 0 24px 0 24px">
+                        style="padding: 0 24px 0 24px">
             <!-- <div ng-repeat="item in list | filter:myFilter track by $index" class="listItem"> !-->
               <ul style="list-style-type:none; padding: 0; margin: 0"
                   dnd-list="list.items" ng-mouseup="updateCompleted()"
                   >
                 <!-- track by $index  !-->
                 <li
-                    ng-repeat="item in list.items | filter:myFilter"
+                    ng-repeat="item in list.items | filter:myFilter track by $index"
                     ng-click=""
                     dnd-draggable="item"
                     dnd-moved="list.items.splice($index, 1); updateCompleted()"
@@ -88,10 +88,12 @@
   <form ng-submit="addTab(tTitle)" layout="column" class="md-padding" style="padding-top: 0;">
     <div layout="row" layout-sm="column">
       <span flex></span>
+
       <md-input-container style="width:50%">
-        <label for="label">New list name...</label>
-        <input type="text" id="label" ng-model="tTitle">
+        <label>New list name...</label>
+        <input type="text" ng-model="tTitle">
       </md-input-container>
+
       <md-button class="add-tab md-primary md-raised" ng-disabled="!tTitle" type="submit" style="margin-right: 0;">New List</md-button>
     </div>
   </form>
