@@ -22,12 +22,12 @@
   <body>
 
     <div class="tabsdemoDynamicTabs" layout="column" >
-  <md-content style="padding:5px;" class="containerPlace">
-    <md-tabs md-selected="selectedIndex" md-border-bottom="" md-autoselect="" ng-click="saveTab(selectedIndex)">
+  <md-content style="padding:0" class="containerPlace">
+    <md-tabs md-dynamic-height md-selected="selectedIndex" md-border-bottom="" md-autoselect="" ng-click="saveTab(selectedIndex)">
       <md-tab ng-repeat="list in lists  track by $index " ng-disabled="list.disabled" label="{{list.title}}" >
-        <div class="demo-tab tab{{$index%4}}" style=" padding: 10px;text-align: center;height: auto;">
-          <md-card>
-            <md-content style="padding: 10px 24px 0 24px" layout-padding>
+        <div class="demo-tab tab{{$index%4}}" style="text-align: center;height: auto;">
+          <md-card style="margin: 8px 8px -6px 8px;">
+            <md-content style="padding: 10px 15px 0 15px" layout-padding>
             <form ng-submit="addItem($index)">
               <div layout>
               <md-input-container flex>
@@ -45,14 +45,14 @@
             </form>
             </md-content >
             <md-content id="listcontent" layout-padding
-                        style="padding: 0 24px 0 24px">
+                        style="padding: 0 15px 0 15px">
             <!-- <div ng-repeat="item in list | filter:myFilter track by $index" class="listItem"> !-->
               <ul style="list-style-type:none; padding: 0; margin: 0"
                   dnd-list="list.items" ng-mouseup="updateCompleted()"
                   >
                 <!-- track by $index  !-->
                 <li
-                    ng-repeat="item in list.items | filter:myFilter track by $index"
+                    ng-repeat="item in list.items | filter:myFilter"
                     ng-click=""
                     dnd-draggable="item"
                     dnd-moved="list.items.splice($index, 1); updateCompleted()"
@@ -71,7 +71,7 @@
                 </li>
               </ul>
               </md-content>
-              <div class="md-actions" layout="row" layout-align=" center" style="padding:24px; width:100%">
+              <div class="md-actions" layout="row" layout-align=" center" style="padding:10px 24px; width:100%">
 
                 <span flex></span>
 
@@ -85,9 +85,8 @@
       </md-tab>
     </md-tabs>
   </md-content>
-  <form ng-submit="addTab(tTitle)" layout="column" class="md-padding" style="padding-top: 0;">
-    <div layout="row" layout-sm="column">
-      <span flex></span>
+  <form ng-submit="addTab(tTitle)" layout="column" class="md-padding add-list-form" style="padding-top: 0;">
+    <div layout="row">
 
       <md-input-container flex>
         <label>New list name...</label>

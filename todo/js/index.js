@@ -78,13 +78,26 @@
         title: 'Todo',
         items: [
           {
-            name:'Watch Xena: warrior princess',
+            name:'Offline-ready lists app',
             completed: false
           },
           {
-            name:'Get a new backpack',
-            completed: true
-          }]
+            name:'Add a new list item above',
+            completed: true,
+          },
+          {
+            name:'Create a new list with the form below',
+            completed: false
+          },
+          {
+            name:'Drag list items to reorder (desktop only)',
+            completed: false
+          },
+          {
+            name:'please hire me: me@clnhll.com',
+            completed: false
+          }
+          ]
         }];
 
       if (localStorage !== null) {
