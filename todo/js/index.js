@@ -98,6 +98,23 @@
             completed: false
           }
           ]
+        },
+      {
+        title: 'Groceries',
+        items: [
+          {
+            name:'Multple tabs',
+            completed: false
+          },
+          {
+            name:'How cool!',
+            completed: false,
+          },
+          {
+            name:'I should buy fruit so my insides don\'t rot',
+            completed: true
+          }
+          ]
         }];
 
       if (localStorage !== null) {
