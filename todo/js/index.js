@@ -63,7 +63,7 @@
         $mdDialog.alert()
           .parent(angular.element(document.body))
           .title('Angular Material To-Do')
-          .content('This project was a project I used to learn Angular Material, various javascript libraries, app caching and local storage. Try re-ordering your list items (desktop only, sorry) or refreshing the page while offline! Delete the default lists and list-items and input your own, your data and this page will persist until you clear your browser data.')
+          .content('This was a project I used to learn Angular Material, various javascript libraries, app caching and local storage. Try re-ordering your list items (desktop only, sorry) or refreshing the page while offline! Delete the default lists and list-items and input your own, your data and this page will persist until you clear your browser data.')
           .ariaLabel('App Info')
           .ok('Got it!')
           .targetEvent(ev)
