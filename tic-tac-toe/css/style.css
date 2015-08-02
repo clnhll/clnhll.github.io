@@ -1,31 +1,24 @@
 body {
-  font-size: 40px;
+  font-size:30px; 
+  text-align: center; 
+  font-family: sans-serif;
 }
-#header {
+.header {
   margin-top: 80px;
 }
-#board {
-  visibility: hidden;
-  line-height: 100%;
-}
-a:hover {
-  text-decoration: none;
+.board {
+  line-height: 30px; 
+  width: 91px; 
+  margin: 25px auto;  
 }
 .tile {
+  display: inline-block;
   cursor: pointer;
-  display: inline;
+  padding: 0px;
 }
-#x, #o {
+.choice {
   cursor: pointer;
 }
-@media only screen 
-and (max-device-width : 414px)
- { 
-  body {
-    font-size: 16px !important;
-  }
-   #board {
-    line-height: 20px !important;
-
-  }
+.choices {
+  margin-top: 140px;
 }

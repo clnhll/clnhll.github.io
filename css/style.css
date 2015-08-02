@@ -4,7 +4,7 @@
 }
 body {
   font-family: 'Asar', serif;
-  background: #82ebb4 url("http://api.thumbr.it/whitenoise-361x370.png?background=4ea6ca00&noise=626262&density=100&opacity=8");
+  background: #82ebb4 url("http://clnhll.com/noise.png");
   background-size: 300px;
   font-size: 16pt;
   text-align: justify;
@@ -15,7 +15,7 @@ a {
   display: inline-block;
   transition: all 0.3s ease;
   color: white;
-  background: #ecc3e6 url("http://api.thumbr.it/whitenoise-361x370.png?background=4ea6ca00&noise=626262&density=100&opacity=8");
+  background: #ecc3e6 url("http://clnhll.com/noise.png");
   background-size: 300px;
   box-shadow: 1px 1px 0px #3ca56e;
   border-radius: 4px;
@@ -41,7 +41,7 @@ h1 {
   text-shadow: none;
   color: #ecc3e6;
   font-size: 100px;
-  background: #ecc3e6 url("http://api.thumbr.it/whitenoise-361x370.png?background=4ea6ca00&noise=626262&density=100&opacity=8");
+  background: #ecc3e6 url("http://clnhll.com/noise.png");
   background-size: 300px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,7 +100,7 @@ dd {
   transition: all 0.3s ease;
   z-index: 1000;
   padding: 4px;
-  background: #ecc3e6 url("http://api.thumbr.it/whitenoise-361x370.png?background=4ea6ca00&noise=626262&density=100&opacity=8");
+  background: #ecc3e6 url("http://clnhll.com/noise.png");
   background-size: 300px;
 }
 .preview:hover {

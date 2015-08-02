@@ -1,16 +1,23 @@
-$(document).ready(function(){
-  
-  var winningCombo = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
-                        [0, 3, 6], [1, 4, 7], [2, 5, 8],
-                        [0, 4, 8], [2, 4, 6]];
-  
-  var movesLeft = [0,1,2,3,4,5,6,7,8];
-  var compMoves = [];
-  var userMoves = [];
-  var user;
-  var comp; 
-  
- 
+(function() {
+    'use strict';
+  angular
+      .module('MyApp',[])
+      .controller('AppCtrl', AppCtrl);
+
+  function AppCtrl($scope, $timeout) {
+    var winningCombo = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+                          [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                          [0, 4, 8], [2, 4, 6]];
+
+    var movesLeft = [0,1,2,3,4,5,6,7,8];
+    var compMoves = [];
+    var userMoves = [];
+    var user;
+    var comp; 
+    $scope.board=["⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️"];
+    $scope.ties=0;
+    $scope.losses=0;
+   
     var findWin=function() {
 
       //alert("findWin")
@@ -36,18 +43,16 @@ $(document).ready(function(){
         }
         if (winning.length==2 & tileLeft.length==1) {        
           if (movesLeft.indexOf(tileLeft[0])!==-1) {
-            $("#"+ tileLeft[0]).text("☑️");
-            $("#"+ winning[0]).text("☑️");
-            $("#"+ winning[1]).text("☑️");
-            return true;
-            
+            $scope.board[tileLeft[0]]="☑️";
+            $scope.board[winning[0]]="☑️";
+            $scope.board[winning[1]]="☑️";
+            return true;            
           }  
         }
       }
       return false; 
     }
-    
-    
+       
     var block=function() {
      // alert("block");
       for (var i = 0; i < winningCombo.length;i++) {
@@ -73,7 +78,7 @@ $(document).ready(function(){
         if (winning.length==2 & tileLeft.length==1) {        
           if (movesLeft.indexOf(tileLeft[0])!==-1) {
             movesLeft[movesLeft.indexOf(tileLeft[0])]=null;
-            $("#"+ tileLeft[0]).text(comp);
+            $scope.board[tileLeft[0]]=$scope.comp;
             compMoves.push(tileLeft[0]);
             return true;
           }  
@@ -81,9 +86,7 @@ $(document).ready(function(){
       }
       return false; 
     }
-    
-    
-    
+     
     var findFork=function() {
     //alert("findFork");
 
@@ -101,7 +104,7 @@ $(document).ready(function(){
       for (var l = 0; l < pairs.length; l++) {
         if (pairs.lastIndexOf(pairs[l]) > l) {
           var move = pairs[l];
-          $("#"+ move).text(comp);
+          $scope.board[move]=$scope.comp;
           movesLeft[movesLeft.indexOf(move)]=null;
           compMoves.push(move);
           return true;
@@ -109,6 +112,7 @@ $(document).ready(function(){
       }
       return false; 
     }
+
     var findOppFork=function() {
       //alert("findOppFork");
 
@@ -126,7 +130,7 @@ $(document).ready(function(){
       for (var l = 0; l < pairs.length; l++) {
         if (pairs.lastIndexOf(pairs[l]) > l) {
           var move = pairs[l];
-          $("#"+ move).text(comp);
+          $scope.board[move]=$scope.comp;
           movesLeft[movesLeft.indexOf(move)]=null;
           compMoves.push(move);
           return true;
@@ -137,7 +141,7 @@ $(document).ready(function(){
     
     var center=function() {
       if (movesLeft.indexOf(4)!==-1) {
-        $("#4").text(comp);
+        $scope.board[4]=$scope.comp;
         compMoves.push(4);
         movesLeft[movesLeft.indexOf(4)]=null;
         return true;
@@ -151,22 +155,22 @@ $(document).ready(function(){
 
       var lum = userMoves[userMoves.length-1] //lastusermove
       if (lum==0 && movesLeft.indexOf(8) !==-1) {
-        $("#8").text(comp);
+        $scope.board[8]=$scope.comp;
         compMoves.push(8);
         movesLeft[movesLeft.indexOf(8)]=null;
         return true;
       } else if (lum==2 && movesLeft.indexOf(6) !==-1) {
-        $("#6").text(comp);
+        $scope.board[6]=$scope.comp;
         compMoves.push(6);
         movesLeft[movesLeft.indexOf(6)]=null;
         return true;
       } else if (lum==6 && movesLeft.indexOf(2) !==-1) {
-        $("#2").text(comp);
+        $scope.board[2]=$scope.comp;
         compMoves.push(2);
         movesLeft[movesLeft.indexOf(2)]=null;
         return true;
       } else if (lum==8 && movesLeft.indexOf(0) !==-1) {
-        $("#0").text(comp);
+        $scope.board[0]=$scope.comp;
         compMoves.push(0);
         movesLeft[movesLeft.indexOf(0)]=null;
         return true;
@@ -178,48 +182,49 @@ $(document).ready(function(){
 
 
       if (movesLeft.indexOf(0) !==-1) {
-        $("#0").text(comp);
+        $scope.board[0]=$scope.comp;
         compMoves.push(0);
         movesLeft[movesLeft.indexOf(0)]=null;
         return true;
       } else if (movesLeft.indexOf(2) !==-1) {
-        $("#2").text(comp);
+        $scope.board[2]=$scope.comp;
         compMoves.push(2);
         movesLeft[movesLeft.indexOf(2)]=null;
         return true;
       } else if (movesLeft.indexOf(6) !==-1) {
-        $("#6").text(comp);
+        $scope.board[6]=$scope.comp;
         compMoves.push(6);
         movesLeft[movesLeft.indexOf(6)]=null;
         return true;
       } else if (movesLeft.indexOf(8) !==-1) {
-        $("#8").text(comp);
+        $scope.board[8]=$scope.comp;
         compMoves.push(8);
         movesLeft[movesLeft.indexOf(8)]=null;
         return true;
       } else{ return false; }
     }
+
     var emptySide=function() {
                   //alert("emptyside");
 
 
       if (movesLeft.indexOf(1) !==-1) {
-        $("#1").text(comp);
+        $scope.board[1]=$scope.comp;
         compMoves.push(1);
         movesLeft[movesLeft.indexOf(1)]=null;
         return true;
       } else if (movesLeft.indexOf(3) !==-1) {
-        $("#3").text(comp);
+        $scope.board[3]=$scope.comp;
         compMoves.push(3);
         movesLeft[movesLeft.indexOf(3)]=null;
         return true;
       } else if (movesLeft.indexOf(5) !==-1) {
-        $("#5").text(comp);
+        $scope.board[5]=$scope.comp;
         compMoves.push(5);
         movesLeft[movesLeft.indexOf(5)]=null;
         return true;
       } else if (movesLeft.indexOf(7) !==-1) {
-        $("#7").text(comp);
+        $scope.board[7]=$scope.comp;
         compMoves.push(7);
         movesLeft[movesLeft.indexOf(7)]=null;
         return true;
@@ -228,76 +233,59 @@ $(document).ready(function(){
 
     }
 
- var compMove=function(){
-   if (findWin()) {
-      setTimeout(function(){
-        //alert("game over! you lost, sorry"); 
-        $(".tile").text("⬜️");
-        movesLeft = [0,1,2,3,4,5,6,7,8];
-        compMoves = [];
-        userMoves = [];
-        //compMove();
-        movesLeft=movesLeft.filter(function(item){return item!==null});
-      }, 1500);
-      return;
-    } else if (block()) {
-      return;
-    } else if (findFork()) {
-      return;
-    } else if (findOppFork()) {
-      return;
-    } else if (center()) {
-      return;
-    } else if (oppCorner()) {
-      return;
-    } else if (emptyCorner()) {
-      return;
-    } else if (emptySide()) {
-      return;
-    }
-  } 
+    var compMove=function(){
+      if (findWin()) {
+        $timeout(
+          function(){
+            $scope.board=["⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️"];
+            $scope.losses+=1;
+            movesLeft = [0,1,2,3,4,5,6,7,8];
+            compMoves = [];
+            userMoves = [];
+            //compMove();
+            movesLeft=movesLeft.filter(function(item){return item!==null});
+          }, 
+          1500);
+        
+        return;
+      } else if (block()) {
+        return;
+      } else if (findFork()) {
+        return;
+      } else if (findOppFork()) {
+        return;
+      } else if (center()) {
+        return;
+      } else if (oppCorner()) {
+        return;
+      } else if (emptyCorner()) {
+        return;
+      } else if (emptySide()) {
+        return;
+      }
+    } 
  
-  $("#o").click(function() {
-    user = "⭕️";
-    comp = "❌";
-    $(".choose").css("visibility","hidden");
-    $("#board").css("visibility","visible");
-    compMove();
-  });
-  
-  
-  $("#x").click(function() {
-    user = "❌";
-    comp = "⭕️";
-    $(".choose").css("visibility","hidden");
-    $("#board").css("visibility","visible");
-   compMove();
-  })
-  
-  
-  $(".tile").click(function() {
-    var id = parseInt($(this).attr('id'));
-    if (movesLeft.indexOf(id) !==-1) {
-      $(this).text(user);
-      userMoves.push(id);
-      movesLeft[movesLeft.indexOf(id)]=null;
-      movesLeft=movesLeft.filter(function(item){return item!==null});
-      compMove();
-      movesLeft=movesLeft.filter(function(item){return item!==null});
-    }
-    if (movesLeft.length==0) {
-      setTimeout(function(){
-        //alert("game over! you tied! resetting"); 
-        $(".tile").text("⬜️");
-        movesLeft = [0,1,2,3,4,5,6,7,8];
-        compMoves = [];
-        userMoves = [];
+    $scope.userMove = function(id) {
+      if (movesLeft.indexOf(id) !==-1) {
+        $scope.board[id] = $scope.user;
+        userMoves.push(id);
+        movesLeft[movesLeft.indexOf(id)]=null;
+        movesLeft=movesLeft.filter(function(item){return item!==null});
         compMove();
         movesLeft=movesLeft.filter(function(item){return item!==null});
-      }, 1000);
-    }
-  })
-  
-  
-  
-})
+      }
+      if (movesLeft.length==0) {
+        $timeout(function(){
+          //alert("game over! you tied! resetting"); 
+          $scope.ties+=1;
+          $scope.board=["⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️","⬜️"];
+          movesLeft = [0,1,2,3,4,5,6,7,8];
+          compMoves = [];
+          userMoves = [];
+          compMove();
+          movesLeft=movesLeft.filter(function(item){return item!==null});
+        }, 1000);
+      }
+    }    
+  } 
+})();
