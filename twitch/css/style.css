@@ -1,95 +1,22 @@
-body {
-  background:rgb(245,159,150);
-  font-family: 'Open Sans', sans-serif; 
-}
-.main {
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: white;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-canvas {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+md-tabs-content-wrapper {
   background: white;
-  border: 1px solid rgb(242,118,104);
-  padding:0;
-  width:300px;
-  margin: 10px auto;
 }
-
-.fa {
-  padding-top:20px;
+.inputs {
+  padding: 5px 20px 0px 20px;
 }
-.nav-tabs li {
-  background:rgb(242,118,104);
-  color: white;
-  border: 1px solid rgb(242,118,104);
+a {
+   text-decoration: none;
+  color: rgb(33,33,33);
 }
-.nav a {
-  width: 97px; 
+.tabsdemoDynamicHeight {
+  background: rgb(246, 246, 246)
 }
-input {
-  border-radius: 15px;
-  border: 1px solid #eee;
-  width:245px;
-  margin:10px 0px 0px 10px;
-  padding-left:8px;
-  color:rgb(242,118,104)
-}
-input:focus {
-    outline-width: 0;
-}
-input:focus {
-
-  border: 1px solid rgb(242,118,104);
-
-}
-hr {
-  width:298px;
-  margin-left:-10px;
-}
-.nav-tabs li a:hover,.nav-tabs li a,.nav-tabs li.active a,.nav-tabs li.active a:hover,.nav-tabs li.active a:focus {
-  border-radius: 0;
-  color: white;
-  background:rgb(242,118,104);
-  border:0;
-}
-
-.midtab {
-  border-left: 1px solid rgb(245,159,150) !important;
-  border-right: 1px solid rgb(245,159,150) !important;
-}
-.glyphicon {
-  color:rgb(242,118,104);
-  margin-top:-5px;
-}
-.online {
-  color: rgb(145,215,213);
-  padding-left:4px;
-}
-.offline {
-  color:rgb(242,118,104);
-  padding-left:4px;
-
-}
-.userPic {
-    border-radius: 50%;
-    width:50px;
-    height: 50px;
-    margin: 4px 8px 4px 4px;
-    background-color: grey;
-    
-}
-.username, .username:hover{
-  color:salmon;
-}
-.user {
-  width:300px;
-}
-.shhhh {
-  display: none;
-}
-.username : {
-  color: #ddd !important;
-}
-.status {
-  color: #bbb;
-  margin-left: 63px;
-  font-size:7.5pt;
-  margin-top:-20px;
-  margin-bottom: 5px;
-}
-.anything, .peepsOnline, .peepsOffline {padding: 10px}

@@ -1,11 +1,13 @@
 body {
   font-family: 'Verdana', sans-serif; 
   background: #eee;
+  font-size: 10pt;
 }
 input {
   border-radius: 15px;
+  line-height: 14pt;
   border: 1px solid #ddd;
-  width:245px;
+  width:145px;
   margin:10px 0px 0px 10px;
   padding-left:8px;
 }
@@ -14,6 +16,10 @@ input:focus {
 }
 input:focus {
   border: 1px solid #bbb;
+}
+.head {
+  line-height: 25px;
+  margin-bottom: -20px;
 }
 .searchmatch {
   color: green;
@@ -27,6 +33,24 @@ input:focus {
 .aresult:hover {
   background: #f9f9f9;
   border-left: solid 2px #ddd;
-  
   padding-left:8px;
+}
+
+.aresult.ng-move,
+.aresult.ng-enter,
+.aresult.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.aresult.ng-leave.ng-leave-active,
+.aresult.ng-move,
+.aresult.ng-enter {
+  opacity:0;
+}
+
+.aresult.ng-leave,
+.aresult.ng-move.ng-move-active,
+.aresult.ng-enter.ng-enter-active {
+  opacity:1;
 }
