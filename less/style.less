@@ -1,157 +1,151 @@
-@accent: rgb(256,140,150);
+@bg: rgb(138,243,188)-rgb(8,8,8);
+@accent: @bg - rgb(70,70,70);
+@accent2: rgb(256,215,250) - rgb(20,20,20);
+@noise: url("http://api.thumbr.it/whitenoise-361x370.png?background=4ea6ca00&noise=626262&density=100&opacity=8");
 
+//@bg: rgb(120,170,225) + rgb(50,50,50);
 // bootstrap warning color: #f0ad4e;
-.icon {
-  border-radius:50%;
-  width: 100%;
+.text {
+  color: white;
+  text-shadow: @accent 1px 1px 0px;
 }
 body {
-  font-family: 'Roboto Slab', serif;
-  background: #fafafa;
-  font-size: 13pt;
+  font-family: 'Asar', serif;
+  background: @bg @noise;
+  background-size: 300px;
+  font-size: 16pt;
+  text-align: justify;
+  .text;
 }
 a {
-  color: @accent;
-  font-weight: 400;
+  display: inline-block;
   transition:all 0.3s ease;
+  color: white;
+  background: @accent2 @noise;
+  background-size: 300px;
+  box-shadow: 1px 1px 0px @accent;
+  border-radius: 4px;
+  padding: 0 4px;
+  margin: 0 -4px;
+  line-height: 20pt;
+  &:hover {
+    transition: all 0.3s ease;
+    color:white;
+    text-decoration: none;
+    box-shadow: 3px 3px 0px @accent;
+  }
+  &:focus {
+    border: none;
+    text-decoration: none;
+  }
 }
-a:hover {
-  color: @accent;
+.left {
+    width: 100%;
+    padding: 60px 0px 45px 0px;
+}
+
+h1 {
+  text-shadow: none;
+  transition: all 0.3s ease;
+  color: @accent2;
+  font-size:100px;
+  background: @accent2 @noise;
+  background-size: 300px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @media (max-width: 430px) {
+    font-size:50px;
+  }
   transition:all 0.3s ease;
+  &::after{
+    content: "Colin Hill";
+    position: absolute;
+    left:0;
+    -webkit-text-fill-color: white;
+    z-index: -1;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 2px 0px 0px 4px;
+    text-shadow: 2px 2px 0px @accent;
+
+
+    @media (max-width: 430px) {
+      padding: 1px 0px 0px 2px;
+      text-shadow: 1px 1px 0px @accent;
+
+
+    }
+    transition:text-shadow 0.3s ease;
+  }
+  &:hover {
+    //font-size: 105px;
+    //margin-bottom: 5px;
+
+    &::after{
+      text-shadow: 4px 4px 0px @accent;
+      transition:all 0.3s ease;
+      @media (max-width: 430px) {
+        text-shadow: 2px 2px 0px @accent;
+
+
+      }
+    }
+  }
 
 }
-h1 {
-  font-family: 'Roboto Slab', serif;
-  font-weight: 300;
-  color: @accent;
-  transition:all 0.3s ease;
-}
+
+
 .container {
   margin-top: 20px;
 }
-.left {
-  float: left;
-  padding-bottom: 20px;
-  position: relative;
-}
-.content {
-  margin-top:40px;
-}
-.aside {
-  color: #000;
-}
-.openquote {
-  font-size: 90pt;
-  color: @accent;
-  transition:all 0.3s ease;
-  line-height: 13pt;  
-  display: block;
-  margin-bottom: -35px;
-  margin-left: -25px;
-}
-.closequote {
-  font-size: 90pt;
-  color: @accent;
-  transition:all 0.3s ease;
-  float: right;
-  margin-top: -85px;
-  margin-right: -15px;
-  margin-bottom:-1000px;
-}
+
 dt {
-  font-size: 12pt;
+  font-size: 16pt;
   font-weight: 400;
+  padding: 0 7px 8px 0;
+  text-overflow: ellipsis;
 }
-@media only screen 
-and (min-width: 531px)  
-and (max-width : 992px) { 
-  .vcenter {
-  display: block;
-  vertical-align: middle;
-  transform: translateY(50%);
-  position: relative;
-  }
-  .left {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 50px;
-  }
+dd {
+  margin-bottom: 30px;
 }
-
-@media only screen 
-and (min-device-width : 500px)
-and (max-device-width: 736px) { 
-  .vcenter {
-  display: block;
-  vertical-align: middle;
-  top:50%;
-  //transform: translateY(50%);
-  position: relative; 
-  }
-  .left {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 50px;
-  }
-}
-@media only screen 
-and (min-width : 500px)
-and (max-width: 736px) { 
-  .vcenter {
-  display: block;
-  vertical-align: middle;
-  top:50%;
-  //transform: translateY(50%);
-  position: relative; 
-  }
-  .left {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 50px;
-  }
-}
-@media only screen 
-and (max-width : 414px) 
-{ 
-  body {
-    font-size: 11pt;
-  }
-  h1 {
-    font-size: 14pt;
-    font-weight: 400;
-  }
-    .left {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 50px;
-  }
-}
-@media only screen 
-and (min-width : 415px)
-and (max-width : 499px) 
-{ 
-  body {
-    font-size: 12pt;
-  }
-  h1 {
-    //font-size: pt;
-  }
-    .left {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 50px;
-  }
-}
-
 .preview {
   display:inline-block;
-  top:0;
   position: relative;
   margin-bottom: 15px;
-  border: 2px dashed @accent;
+  box-shadow: 1px 1px 0px @accent;
   transition:all 0.3s ease;
-
+  z-index: 1000;
+  padding: 4px;
+  background: @accent2 @noise;
+  background-size: 300px;
+  &:hover {
+    transition:all 0.3s ease;
+    //background: white @noise;
+      box-shadow: 3px 3px 0px @accent;
+  }
 }
-.preview:hover {
-  border: 2px solid @accent;
-  transition:all 0.3s ease;
 
+a.no{
+  background: none !important;
+  padding: none !important;
+  transition:all 0.3s ease;
+  background: none;
+  box-shadow: none;
+  border-radius: 4px;
+  padding: none;
+  margin: none;
 }
 .footer {
-  color: #ccc;
+  opacity:.7;
+  margin-top: 20px;
+  transition:all 0.3s ease;
+  &:hover {
+    opacity:1;
+    transition:all 0.3s ease;
+  }
+}
+
+.wf-asar-loading body { 
+    font-family: serif !important; 
 }
