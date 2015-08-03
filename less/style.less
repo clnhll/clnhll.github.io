@@ -1,13 +1,39 @@
-@bg: rgb(138,243,188)-rgb(70,50,50);
-@accent: @bg - rgb(70,70,70);
-@accent2: rgb(256,215,250) - rgb(10,20,10);
-@noise: url("http://clnhll.com/noise.png");
+@accent: rgb(81,109,124)+rgb(0,0,20);
+@accent1: rgb(255,229,230);
+@bg:rgb(150,203,185)-rgb(5,15,-15);
+@accent2: rgb(238,125,135) + rgb(10,-10,10); 
+
+@noise:; //url("http://clnhll.com/noise.png");
 
 //@bg: rgb(120,170,225) + rgb(50,50,50);
 // bootstrap warning color: #f0ad4e;
 .text {
-  color: white;
+  color: @accent1;
   text-shadow: @accent 1px 1px 0px;
+}
+.me {
+  background: url(http://clnhll.com/me.jpg) center;
+  background-size: 100%;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: auto;
+  border: 4px solid @accent2;
+  //box-shadow: 2px 2px 0px @accent;
+  &::after {
+    content:"";
+    background: @accent1;
+    position: relative;
+    width: 248px;
+    height: 248px;
+    display: block;
+    border-radius: 50%;
+    margin: auto;
+    border: 4px solid @accent1;
+    box-shadow: 2px 2px 0px @accent;
+    z-index: -1;
+  }
 }
 body {
   font-family: 'Asar', serif;
@@ -20,7 +46,7 @@ body {
 a {
   display: inline-block;
   transition:all 0.3s ease;
-  color: white;
+  color: @accent1;
   background: @accent2 @noise;
   background-size: 300px;
   box-shadow: 1px 1px 0px @accent;
@@ -30,19 +56,19 @@ a {
   line-height: 20pt;
   &:hover {
     transition: all 0.3s ease;
-    color:white;
     text-decoration: none;
     box-shadow: 3px 3px 0px @accent;
+    color: @accent1;
   }
   &:focus {
     border: none;
     text-decoration: none;
-    color: white;
+    color: @accent1;
   }
   &:active {
     border: none;
     text-decoration: none;
-    color: white;
+    color: @accent1;
   }
   
 }
@@ -68,10 +94,10 @@ h1 {
     content: "Colin Hill";
     position: absolute;
     left:0;
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: @accent1;
     -webkit-background-clip: text;
     z-index: -1;
-    color: white;
+    color: @accent1;
     width: 100%;
     text-align: center;
     padding: 2px 0px 0px 4px;
@@ -87,8 +113,8 @@ h1 {
     //margin-bottom: 5px;
     transition:all 0.3s ease;
     &::after{
-      padding: 10px 0px 0px 24px;
-      text-shadow: 10px 10px 0px @accent;
+      padding: 5px 0px 0px 10px;
+      text-shadow: 5px 5px 0px @accent;
       transition:all 0.3s ease;
       @media (max-width: 430px) {
         padding: 5px 0px 0px 10px;
