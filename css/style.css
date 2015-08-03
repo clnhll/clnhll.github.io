@@ -1,23 +1,23 @@
 .text {
   color: white;
-  text-shadow: #3ca56e 1px 1px 0px;
+  text-shadow: #007b44 1px 1px 0px;
 }
 body {
   font-family: 'Asar', serif;
-  background: #82ebb4 url("http://clnhll.com/noise.png");
+  background: #44c18a url("http://clnhll.com/noise.png");
   background-size: 300px;
   font-size: 16pt;
   text-align: justify;
   color: white;
-  text-shadow: #3ca56e 1px 1px 0px;
+  text-shadow: #007b44 1px 1px 0px;
 }
 a {
   display: inline-block;
   transition: all 0.3s ease;
   color: white;
-  background: #ecc3e6 url("http://clnhll.com/noise.png");
+  background: #f6c3f0 url("http://clnhll.com/noise.png");
   background-size: 300px;
-  box-shadow: 1px 1px 0px #3ca56e;
+  box-shadow: 1px 1px 0px #007b44;
   border-radius: 4px;
   padding: 0 4px;
   margin: 0 -4px;
@@ -27,7 +27,7 @@ a:hover {
   transition: all 0.3s ease;
   color: white;
   text-decoration: none;
-  box-shadow: 3px 3px 0px #3ca56e;
+  box-shadow: 3px 3px 0px #007b44;
 }
 a:focus {
   border: none;
@@ -45,9 +45,9 @@ a:active {
 }
 h1 {
   text-shadow: none;
-  color: #ecc3e6;
+  color: #f6c3f0;
   font-size: 100px;
-  background: #ecc3e6 url("http://clnhll.com/noise.png");
+  background: #f6c3f0 url("http://clnhll.com/noise.png");
   background-size: 300px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,13 +69,13 @@ h1::after {
   width: 100%;
   text-align: center;
   padding: 2px 0px 0px 4px;
-  text-shadow: 2px 2px 0px #3ca56e;
+  text-shadow: 2px 2px 0px #007b44;
   transition: text-shadow 0.3s ease, padding 0.3s ease;
 }
 @media (max-width: 430px) {
   h1::after {
     padding: 1px 0px 0px 2px;
-    text-shadow: 1px 1px 0px #3ca56e;
+    text-shadow: 1px 1px 0px #007b44;
   }
 }
 h1:hover {
@@ -83,17 +83,20 @@ h1:hover {
 }
 h1:hover::after {
   padding: 10px 0px 0px 24px;
-  text-shadow: 10px 10px 0px #3ca56e;
+  text-shadow: 10px 10px 0px #007b44;
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
   h1:hover::after {
     padding: 5px 0px 0px 10px;
-    text-shadow: 8px 8px 0px #3ca56e;
+    text-shadow: 8px 8px 0px #007b44;
   }
 }
 .container {
   margin-top: 20px;
+}
+dl {
+  margin-top: 40px;
 }
 dt {
   font-size: 16pt;
@@ -102,22 +105,22 @@ dt {
   text-overflow: ellipsis;
 }
 dd {
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 .preview {
   display: inline-block;
   position: relative;
   margin-bottom: 15px;
-  box-shadow: 1px 1px 0px #3ca56e;
+  box-shadow: 1px 1px 0px #007b44;
   transition: all 0.3s ease;
   z-index: 1000;
   padding: 4px;
-  background: #ecc3e6 url("http://clnhll.com/noise.png");
+  background: #f6c3f0 url("http://clnhll.com/noise.png");
   background-size: 300px;
 }
 .preview:hover {
   transition: all 0.3s ease;
-  box-shadow: 3px 3px 0px #3ca56e;
+  box-shadow: 3px 3px 0px #007b44;
 }
 a.no {
   background: none !important;
