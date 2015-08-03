@@ -12,6 +12,12 @@
   margin: auto;
   border: 4px solid #f87391;
 }
+@media (max-width: 430px) {
+  .me {
+    width: 150px;
+    height: 150px;
+  }
+}
 .me::after {
   content: "";
   background: #ffe5e6;
@@ -24,6 +30,12 @@
   border: 4px solid #ffe5e6;
   box-shadow: 2px 2px 0px #516d90;
   z-index: -1;
+}
+@media (max-width: 430px) {
+  .me::after {
+    width: 148px;
+    height: 148px;
+  }
 }
 body {
   font-family: 'Asar', serif;
