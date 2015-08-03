@@ -32,6 +32,12 @@ a:hover {
 a:focus {
   border: none;
   text-decoration: none;
+  color: white;
+}
+a:active {
+  border: none;
+  text-decoration: none;
+  color: white;
 }
 .left {
   width: 100%;
