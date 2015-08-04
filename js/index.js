@@ -76,6 +76,7 @@ function MainCtrl($scope, $timeout) {
       title: "Angular Material Twitch.tv Buddy List",
       link: "twitch/",
       img: "http://clnhll.com/twitch.png",
+      embed:"xGmLaq",
       snippet: "This project was an introduction to using a JSON API, which I later went and re-did using AngularJS and Angular Material for practice. It fetches a list of Twitch.tv usernames and displays some information about them.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/twitch" 
     },
@@ -83,6 +84,7 @@ function MainCtrl($scope, $timeout) {
       title: "Angular Emoji Tic-Tac-Toe",
       link: "tic-tac-toe/",
       img: "http://clnhll.com/tic-tac-toe.png",
+      embed: "eNbRxo",
       snippet: "A totally unfair game of tic-tac-toe with an unbeatable AI written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. you may want to use an emoji-friendly browser. Computer lets you play first if you lose, computer plays first if you tie.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/tic-tac-toe" 
     },
@@ -90,6 +92,7 @@ function MainCtrl($scope, $timeout) {
       title: "Wikipedia Live Search",
       link: "wiki/",
       img: "http://clnhll.com/wiki.png",
+      embed: "ZGVXee",
       snippet: "A live-updating article title search using the Wikipedia JSON API, AngularJS and BootStrap. Clicking the random button will also display a random article on command.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/wiki" 
     },
@@ -97,6 +100,7 @@ function MainCtrl($scope, $timeout) {
       title: "Local Weather",
       link: "weather/",
       img: "http://clnhll.com/weather.png",
+      embed: "vOmxJY",
       snippet: "A little weather applet, again practicing JSON requests, uses your IP address to estimate your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/weather" 
     },
@@ -104,6 +108,7 @@ function MainCtrl($scope, $timeout) {
       title: "Retro Calculator",
       link: "calc/",
       img: "http://clnhll.com/calc.png",
+      embed: "GJmYKN",
       snippet: "This retro-style calculator is super cute and just as functional as any other calculator from the seventies. Allows chaining of operations just like a real calculator would. Is not solar powered, unfortunately.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/calc" 
     },
@@ -111,6 +116,7 @@ function MainCtrl($scope, $timeout) {
       title: "Pomodoro Timer",
       link: "pomodoro/",
       img: "http://clnhll.com/pomo.png",
+      embed: "zGwWQp",
       snippet: "A cute timer for the pomodoro scheduling program. Input work time and break time and watch as the circle fills up with seconds of your life you'll never get back. Bonus: plays an annoying noise when it gets to zero!",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/pomodoro" 
     },
@@ -118,6 +124,7 @@ function MainCtrl($scope, $timeout) {
       title: "Random Twitter API Abuser",
       link: "twitter/",
       img: "http://clnhll.com/tweets.png",
+      embed: "NqjNZJ",
       snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of my friend @adamjk's tweets through an RSS to JSON filter and displays a random one at the press of a button.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/twitter" 
     }

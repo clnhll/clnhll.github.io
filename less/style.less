@@ -249,8 +249,17 @@ body {
                 }
               }       
             }
+            h3 {
+              @media (max-width: 320px) {
+                font-size:13pt;
+                line-height: 13pt;
+              }
+            }
             .fontfix {
               font-family:serif;
+            }
+            .codepen {
+              overflow: scroll !important;
             }
             .preview {
               position: relative;
@@ -261,10 +270,30 @@ body {
               box-shadow: 1px 1px 0px @accent;
               transition: all 0.3s ease;
               padding: 4px;
+              border-radius: 7px;
               background: @accent2;
               &:hover {
                 transition:all 0.3s ease;
                 box-shadow: 3px 3px 0px @accent;
+              }
+              img {
+                max-height: 292px;
+              }       
+            }
+            .embed {
+              margin-bottom: -15px;
+
+
+              .preview {
+                @media (min-width: 430px) {
+                  display: none;
+                }
+              }
+              .embed-inner {
+                margin-bottom: -35px;
+                @media (max-width: 430px) {
+                  display: none;
+                }
               }
             }
           }

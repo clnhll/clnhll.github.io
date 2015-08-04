@@ -18,6 +18,8 @@
   <body>
 
     <body ng-app="MyApp" ng-controller="MainCtrl">
+  <script async src='//assets.codepen.io/assets/embed/ei.js'></script>
+  
   <div class="top-button" ng-show="snapIndex!==0">
     <a href="#" ng-click="snapIndex=0; skipTimeout=true">to top</a>
   </div>
@@ -73,8 +75,22 @@
       <div class="outer">
         <div class="middle">
           <div class="inner text-center"> 
-            <a class="no" style="margin-left: 0px" ng-href="{{project.link}}"><h3>{{project.title}}</h3></a><br />
-            <a class="no" ng-href="{{project.link}}"><img ng-src="{{project.img}}" class="img-rounded img-responsive preview center-block" /></a>
+            <a class="no" style="margin-left: 0px" ng-href="{{project.link}}">
+              <h3>{{project.title}}</h3>
+            </a><br />
+            <div ng-show="project.embed" class="embed">
+              <div class="embed-inner">
+              <p data-height='300' data-theme-id='0' data-slug-hash='{{project.embed}}' data-default-tab='result' data-user='cln' class='codepen'></p>
+              </div>
+              <div class="preview">  
+                  <img ng-src="{{project.img}}" class="img-rounded img-responsive center-block" />     
+              </div>
+            </div>
+            <a class="no" ng-href="{{project.link}}">
+              <div class="preview" ng-hide="project.embed" >                
+                  <img  ng-src="{{project.img}}" class="img-rounded img-responsive center-block" />     
+              </div>
+            </a>
             <p style="text-align:justify">{{project.snippet}} &#x261E; <a ng-href="{{project.git}}">GitHub</a>
             </p>
           </div>
