@@ -13,20 +13,26 @@ function MainCtrl($scope, $timeout) {
     $scope.skipTimeout=true;
     if ($scope.snapIndex < $scope.projectData.length+3) {
       $scope.snapIndex = $scope.snapIndex + 1;
+    } else {
+      $scope.snapIndex = $scope.projectData.length+3;
     }
   }
   $scope.beforeCallback = function() {
-    if ($scope.skipTimeout) {
+    if ($scope.skipTimeout && $scope.snapIndex <= $scope.projectData.length+3) {
       $scope.skipTimeout = false;
       return true;
     }
-    if (!ready) {
+    if (!ready || $scope.snapIndex >= $scope.projectData.length+4) {
       return false;
+      $scope.snapIndex = $scope.projectData.length+3
     } 
   }
   $scope.afterCallback = function() {
     ready=false;
     $timeout(function(){ready=true},700);
+    if ($scope.snapIndex > $scope.projectData.length+3) {
+      $scope.snapIndex = $scope.projectData.length+3
+    } 
   }
 
 
