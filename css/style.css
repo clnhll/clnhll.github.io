@@ -4,6 +4,7 @@
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
   font-size: 16pt;
+  line-height: 23pt !important;
 }
 /* Google Font Loading Fix */
 .wf-asar-loading body {
@@ -16,6 +17,7 @@ body {
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
   font-size: 16pt;
+  line-height: 23pt !important;
   padding: 0;
   margin: 0;
 }
@@ -161,6 +163,9 @@ body .top-button.ng-hide {
 body .container {
   margin: 0 auto;
   padding: 0 20px ;
+}
+body .container .projects {
+  height: 100%;
 }
 body .container .limit-width {
   max-width: 800px;

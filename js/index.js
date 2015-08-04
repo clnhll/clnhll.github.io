@@ -1,11 +1,19 @@
 (function(){
   'use strict';
   
-
 angular.module('MyApp',['swipe','snapscroll','ngAnimate']).
-controller('MainCtrl', MainCtrl);
-
-function MainCtrl($scope, $timeout) {
+controller('MainCtrl', MainCtrl).
+config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'self',
+    'http://codepen.io/**'
+  ]);
+});
+  function MainCtrl($scope, $timeout) {
+  $scope.getSrc = function(item) {
+    return "//codepen.io/cln/embed/" + item + "/?height=300&theme-id=0&default-tab=result";
+  }
+  $scope.loadedItems=[];
   $scope.skipTimeout=false;
   WebFont.load({google: {families: ['Asar']}});
   var ready = true;
@@ -28,6 +36,12 @@ function MainCtrl($scope, $timeout) {
     } 
   }
   $scope.afterCallback = function() {
+    if ($scope.loadedItems.indexOf(
+      $scope.projectData[$scope.snapIndex])==-1 && $scope.projectData[$scope.snapIndex] !== undefined) {
+      $scope.loadedItems.push($scope.projectData[$scope.snapIndex])
+
+
+    }
     ready=false;
     $timeout(function(){ready=true},700);
     if ($scope.snapIndex > $scope.projectData.length+3) {
@@ -129,6 +143,6 @@ function MainCtrl($scope, $timeout) {
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/twitter" 
     }
   ];
-
 }
-  })()
+  
+})()
