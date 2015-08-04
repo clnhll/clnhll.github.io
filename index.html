@@ -73,7 +73,7 @@
       <div class="outer">
         <div class="middle">
           <div class="inner text-center"> 
-            <a class="no" style="margin-left: 0px" ng-href="{{project.link}}">
+            <a class="no" style="margin-left: 0px" ng-href="{{project.src}}">
               <h3>{{project.title}}</h3>
             </a><br />
             <div ng-show="project.embed" class="embed">
@@ -94,7 +94,7 @@
                 <img  ng-src="{{project.img}}" class="img-rounded img-responsive center-block" />     
               </div>
             </a>
-            <p style="text-align:justify">{{project.snippet}} &#x261E; <a ng-href="{{project.git}}">GitHub</a>
+            <p style="text-align:justify">{{project.snippet}} &#x261E; <a ng-href="{{project.src}}">Source</a>
             </p>
           </div>
         </div>
