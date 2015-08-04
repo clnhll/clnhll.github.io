@@ -18,7 +18,8 @@
   <body>
 
     <body ng-app="MyApp" ng-controller="MainCtrl">
-   <div class="top-button" ng-show="snapIndex!==0"><a href="#" ng-click="snapIndex=0">to top</a></div>
+   <div class="top-button" ng-show="snapIndex!==0"><a href="#" ng-click="snapIndex=0; skipTimeout=true">to top</a></div>
+  <div class="pagenum"><a href="#" ng-click="snapIndex=snapIndex+1; skipTimeout=true;">{{snapIndex+1}}/{{projectData.length+2}}</a></div>
 <div snapscroll
      fit-window-height
      ng-init="snapIndex=0" 
@@ -79,7 +80,7 @@
       <div class="middle">
         <div class="inner text-center">
           <h1>Thanks!</h1>
-          <p>If you appreciated what you saw here and are interested in talking about what I can do, please feel free to email me: <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
+          <p>If you appreciated what you saw here and are interested in talking about what I can do, please feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
           
         </div>
         <p class="copy">2015 - Built with AngularJS, Bootstrap and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>

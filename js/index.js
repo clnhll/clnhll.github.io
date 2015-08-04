@@ -3,9 +3,14 @@
     controller('MainCtrl', MainCtrl);
   
   function MainCtrl($scope, $timeout) {
+    $scope.skipTimeout=false;
     WebFont.load({google: {families: ['Asar']}});
     var ready = true;
     $scope.beforeCallback = function() {
+      if ($scope.skipTimeout) {
+        $scope.skipTimeout = false;
+        return true;
+      }
       if (!ready) {
         return false;
       } 
@@ -56,7 +61,7 @@
         title: "Angular Material Twitch.tv Buddy List",
         link: "twitch/",
         img: "http://clnhll.com/twitch.png",
-        snippet: "This project was an intro to usage of a JSON API, in this case by using AngularJS and Angular Material to take a list of Twitch.tv usernames and display some information about them.",
+        snippet: "This project was an introduction to using a JSON API, which I later went and re-did using AngularJS and Angular Material for practice. It fetches a list of Twitch.tv usernames and displays some information about them.",
         git: "https://github.com/clnhll/clnhll.github.io/tree/master/twitch" 
       },
       {
