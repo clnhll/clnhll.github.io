@@ -290,6 +290,11 @@ body .container .limit-width .outer .middle .inner .embed .embed-inner {
     display: none;
   }
 }
+body .container .limit-width .outer .middle .inner .embed .embed-inner iframe {
+  border: 4px solid #ff8caa;
+  border-radius: 8px;
+  box-shadow: 1px 1px 0px #504854;
+}
 body .footer {
   margin-top: 20px;
   transition: all 0.3s ease;
