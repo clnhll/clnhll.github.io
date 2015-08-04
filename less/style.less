@@ -1,16 +1,73 @@
-@accent: rgb(81,109,124)+rgb(0,0,20);
+@accent: rgb(140,132,144)-rgb(60,60,60);
 @accent1: rgb(255,250,250);
-@bg:rgb(150,203,185)-rgb(5,15,-25);
-@accent2: rgb(238,125,135) + rgb(10,-10,10); 
-
+@bg: linear-gradient(to bottom, 
+  rgb(150,203,185), 
+  rgb(75,177,157)); //rgb(150,203,185)-rgb(5,15,-25);
+@accent2: linear-gradient(to bottom, 
+  rgb(248,115,145)+rgb(20,20,20), 
+  rgb(248,115,145)-rgb(10,10,10));//rgb(238,125,135) + rgb(10,-10,10); 
+.top-button {
+  position: absolute;
+  right:20px;
+  top: 10px;
+  transition: all 0.3s ease;
+  z-index: 100;
+  opacity:.7;
+  a {
+    background: rgb(75,177,157);
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
 @noise:; //url("http://clnhll.com/noise.png");
-
-//@bg: rgb(120,170,225) + rgb(50,50,50);
-// bootstrap warning color: #f0ad4e;
+.limit-width {
+   max-width: 800px; 
+  margin:0 auto;
+}
 .text {
   color: @accent1;
   text-shadow: @accent 1px 1px 0px;
 }
+.outer {
+    display: table;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    @media (max-width: 430px) {
+      padding-top: 20px;
+      vertical-align: top;
+      font-size: 13.5pt;
+    }
+    @media (max-width: 320px) {
+      a {
+        line-height: 14pt;
+      }
+      padding-top: 10px;
+      vertical-align: top;
+      font-size: 12pt;
+      line-height: 15pt;
+      text-align: left;
+    }
+}
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: /*whatever width you want*/;
+}
+section {
+  padding: 10px;
+}
+.container {
+  margin-top: 0 !important;
+}
+
 .me {
   background: url(http://clnhll.com/me.jpg) center;
   background-size: 100%;
@@ -18,8 +75,9 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
+  border: 4px solid rgb(248,115,145); //@accent2 !important;
   margin: auto;
-  border: 4px solid @accent2;
+  cursor: pointer;
   @media (max-width: 430px) {
     width: 150px;
     height: 150px;
@@ -35,18 +93,18 @@
     border-radius: 50%;
     margin: auto;
     border: 4px solid @accent1;
-    box-shadow: 2px 2px 0px @accent;
+    box-shadow: 3px 3px 0px @accent;
     z-index: -1;
-      @media (max-width: 430px) {
-    width: 148px;
-    height: 148px;
-  }
+    padding: 2px 0 0 2px;
+    @media (max-width: 430px) {
+      width: 148px;
+      height: 148px;
+    }
   }
 }
 body {
   font-family: 'Asar', serif;
-  background: @bg @noise;
-  background-size: 300px;
+  background: @bg;
   font-size: 16pt;
   text-align: justify;
   .text;
@@ -83,16 +141,16 @@ a {
 }
 .left {
     width: 100%;
-    padding: 60px 0px 45px 0px;
+    //padding: 60px 0px 45px 0px;
 }
 
 h1 {
   text-shadow: none;
   transition: all 0.3s ease;
   color: @accent2;
+  line-height:100px;
   font-size:100px;
-  background: @accent2 @noise;
-  background-size: 300px;
+  background: @accent2;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @media (max-width: 430px) {
@@ -117,6 +175,7 @@ h1 {
     }
     transition:text-shadow 0.3s ease, padding 0.3s ease;
   }
+  
   &:hover {
     //font-size: 105px;
     //margin-bottom: 5px;
@@ -138,32 +197,20 @@ h1 {
 .container {
   margin-top: 20px;
 }
-dl {
-  margin-top: 40px;
-}
-dt {
-  font-size: 16pt;
-  font-weight: 400;
-  padding: 0 7px 8px 0;
-  text-overflow: ellipsis;
-}
-dd {
-  margin-bottom: 80px;
-}
+
 .preview {
-  display:inline-block;
   position: relative;
-  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 300px;
   box-shadow: 1px 1px 0px @accent;
-  transition:all 0.3s ease;
-  z-index: 1000;
+  transition: all 0.3s ease;
   padding: 4px;
-  background: @accent2 @noise;
-  background-size: 300px;
+  background: @accent2;
   &:hover {
     transition:all 0.3s ease;
-    //background: white @noise;
-      box-shadow: 3px 3px 0px @accent;
+    box-shadow: 3px 3px 0px @accent;
   }
 }
 
@@ -178,12 +225,39 @@ a.no{
   margin: none;
 }
 .footer {
-  opacity:.7;
   margin-top: 20px;
   transition:all 0.3s ease;
-  &:hover {
-    opacity:1;
+  h1 {
+    &::after{
+    content: "Thanks!";
+    position: absolute;
+    left:0;
+    -webkit-text-fill-color: @accent1;
+    -webkit-background-clip: text;
+    z-index: -1;
+    color: @accent1;
+    width: 100%;
+    text-align: center;
+    padding: 2px 0px 0px 4px;
+    text-shadow: 2px 2px 0px @accent;
+    @media (max-width: 430px) {
+      padding: 1px 0px 0px 2px;
+      text-shadow: 1px 1px 0px @accent;
+    }
+    transition:text-shadow 0.3s ease, padding 0.3s ease;
+  }
+  }
+  .copy {
+    opacity: .7;
     transition:all 0.3s ease;
+    margin-top: 50% !important;
+    bottom: -50px;
+    position: absolute;
+    width: 100%;
+    &:hover {
+      opacity:1;  
+      transition:all 0.3s ease;
+    }
   }
 }
 
