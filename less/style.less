@@ -20,13 +20,13 @@
     font-family: serif !important; 
 }
 
-body {
-  
+body { 
   font-family: 'Asar', serif;
   background: @bg;
   text-align: justify;
   .text;
-  
+  padding: 0;
+  margin: 0;
   a {
     display: inline-block;
     transition:all 0.3s ease;
@@ -38,7 +38,7 @@ body {
     padding: 0 4px;
     margin: 0 -4px;
     line-height: 20pt;
-
+    text-decoration: none;
     &:hover {
       transition: all 0.3s ease;
       text-decoration: none;
@@ -66,6 +66,13 @@ body {
     padding: none;
     margin: none;
   }
+  .text-center {
+    text-align: center;
+  }
+  .img-responsive {
+    width: 100%;
+    height: 100%;
+  }
   h1 {
     text-shadow: none;
     transition: all 0.3s ease;
@@ -75,6 +82,7 @@ body {
     background: @accent2;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin:0;
     @media (max-width: 430px) {
       font-size:50px;
     }
@@ -97,7 +105,6 @@ body {
       }
       transition:text-shadow 0.3s ease, padding 0.3s ease;
     }
-
     &:hover {
       //font-size: 105px;
       //margin-bottom: 5px;
@@ -160,8 +167,7 @@ body {
   .container {
     margin: 0 auto; 
     padding: 0 20px ; 
-    width: 100%;
-    
+    //width: 100%;
     .limit-width {
       max-width: 800px; 
       margin:0 auto;
@@ -192,7 +198,10 @@ body {
           }
           .inner {
             margin-left: auto;
-            margin-right: auto; 
+            margin-right: auto;
+            p {
+              margin-top: 0;
+            }
             .left {
               width: 100%;
               cursor: pointer;
@@ -250,6 +259,7 @@ body {
               }       
             }
             h3 {
+              margin-bottom: 10px;
               @media (max-width: 320px) {
                 font-size:13pt;
                 line-height: 13pt;
@@ -263,18 +273,17 @@ body {
               display: block;
               margin-left: auto;
               margin-right: auto;
-              max-height: 300px;
-              box-shadow: 1px 1px 0px @accent;
-              transition: all 0.3s ease;
-              padding: 4px;
-              border-radius: 7px;
-              background: @accent2;
-              &:hover {
-                transition:all 0.3s ease;
-                box-shadow: 3px 3px 0px @accent;
-              }
               img {
                 max-height: 292px;
+                padding: 4px;
+                border-radius: 7px;
+                background: @accent2;
+                transition: all 0.3s ease;
+                box-shadow: 1px 1px 0px @accent;
+                &:hover {
+                  transition:all 0.3s ease;
+                  box-shadow: 3px 3px 0px @accent;
+                }
               }       
             }
             .embed {

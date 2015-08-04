@@ -6,8 +6,7 @@
     <meta name="viewport" content="initial-scale=1">
     
     
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
-
+    
         <link rel="stylesheet" href="css/style.css">
 
     
@@ -32,8 +31,8 @@
      fit-window-height
      ng-init="snapIndex=0" 
      snap-index="snapIndex" 
-     ng-swipe-up="snapIndex=snapIndex+1" 
-     ng-swipe-down="snapIndex=snapIndex-1"
+     ng-swipe-up="snapIndex=snapIndex+1; skipTimeout=true" 
+     ng-swipe-down="snapIndex=snapIndex-1; skipTimeout=true"
      snap-duration="300"
      before-snap="beforeCallback(snapIndex)"
      after-snap="afterCallback(snapIndex)"
@@ -106,7 +105,7 @@
           <p>If you appreciated what you saw here and are interested in talking about what I can do, please feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
           
         </div>
-        <p class="copy">2015 - Built with AngularJS, Bootstrap and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
+        <p class="copy">2015 - Built with AngularJS and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
       </div>
     </div>
  

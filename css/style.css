@@ -16,6 +16,8 @@ body {
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
   font-size: 16pt;
+  padding: 0;
+  margin: 0;
 }
 body a {
   display: inline-block;
@@ -28,6 +30,7 @@ body a {
   padding: 0 4px;
   margin: 0 -4px;
   line-height: 20pt;
+  text-decoration: none;
 }
 body a:hover {
   transition: all 0.3s ease;
@@ -55,6 +58,13 @@ body a.no {
   padding: none;
   margin: none;
 }
+body .text-center {
+  text-align: center;
+}
+body .img-responsive {
+  width: 100%;
+  height: 100%;
+}
 body h1 {
   text-shadow: none;
   color: linear-gradient(to bottom, #ff8caa, #e96482);
@@ -63,6 +73,7 @@ body h1 {
   background: linear-gradient(to bottom, #ff8caa, #e96482);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0;
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
@@ -149,7 +160,6 @@ body .top-button.ng-hide {
 body .container {
   margin: 0 auto;
   padding: 0 20px ;
-  width: 100%;
 }
 body .container .limit-width {
   max-width: 800px;
@@ -189,6 +199,9 @@ body .container .limit-width .outer .middle {
 body .container .limit-width .outer .middle .inner {
   margin-left: auto;
   margin-right: auto;
+}
+body .container .limit-width .outer .middle .inner p {
+  margin-top: 0;
 }
 body .container .limit-width .outer .middle .inner .left {
   width: 100%;
@@ -246,6 +259,9 @@ body .container .limit-width .outer .middle .inner .left .me:hover::after {
     text-shadow: 8px 8px 0px #504854;
   }
 }
+body .container .limit-width .outer .middle .inner h3 {
+  margin-bottom: 10px;
+}
 @media (max-width: 320px) {
   body .container .limit-width .outer .middle .inner h3 {
     font-size: 13pt;
@@ -260,19 +276,18 @@ body .container .limit-width .outer .middle .inner .preview {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-height: 300px;
-  box-shadow: 1px 1px 0px #504854;
-  transition: all 0.3s ease;
-  padding: 4px;
-  border-radius: 7px;
-  background: linear-gradient(to bottom, #ff8caa, #e96482);
-}
-body .container .limit-width .outer .middle .inner .preview:hover {
-  transition: all 0.3s ease;
-  box-shadow: 3px 3px 0px #504854;
 }
 body .container .limit-width .outer .middle .inner .preview img {
   max-height: 292px;
+  padding: 4px;
+  border-radius: 7px;
+  background: linear-gradient(to bottom, #ff8caa, #e96482);
+  transition: all 0.3s ease;
+  box-shadow: 1px 1px 0px #504854;
+}
+body .container .limit-width .outer .middle .inner .preview img:hover {
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0px #504854;
 }
 body .container .limit-width .outer .middle .inner .embed {
   margin-bottom: -15px;
