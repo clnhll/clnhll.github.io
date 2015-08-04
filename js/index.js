@@ -140,7 +140,7 @@ config(function($sceDelegateProvider) {
       img: "http://clnhll.com/tweets.png",
       embed: "NqjNZJ",
       snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of my friend @adamjk's tweets through an RSS to JSON filter and displays a random one at the press of a button.",
-      src: "http://codepen.io/cln/pen/zGwWQp" 
+      src: "http://codepen.io/cln/pen/NqjNZJ" 
     }
   ];
 }
