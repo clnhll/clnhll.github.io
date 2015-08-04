@@ -255,9 +255,6 @@ body .container .limit-width .outer .middle .inner .left .me:hover::after {
 body .container .limit-width .outer .middle .inner .fontfix {
   font-family: serif;
 }
-body .container .limit-width .outer .middle .inner .codepen {
-  overflow: scroll !important;
-}
 body .container .limit-width .outer .middle .inner .preview {
   position: relative;
   display: block;
