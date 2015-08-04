@@ -1,131 +1,27 @@
-.top-button {
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  transition: all 0.3s ease;
-  z-index: 100;
-  opacity: .7;
-}
-.top-button a {
-  background: #4bb19d;
-}
-.top-button:hover {
-  opacity: 1;
-}
-.pagenum {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-  transition: all 0.3s ease;
-  z-index: 100;
-  opacity: .7;
-}
-.pagenum a {
-  background: #4bb19d;
-}
-.pagenum:hover {
-  opacity: 1;
-}
-.limit-width {
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* color and gradient vars */
+/* mixins */
 .text {
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
+  font-size: 16pt;
 }
-.outer {
-  display: table;
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-.middle {
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0;
-  padding: 0;
-}
-@media (max-width: 430px) {
-  .middle {
-    padding-top: 40px;
-    vertical-align: top;
-    font-size: 13.5pt;
-  }
-}
-@media (max-width: 320px) {
-  .middle {
-    padding-top: 10px;
-    vertical-align: top;
-    font-size: 12pt;
-    line-height: 15pt;
-    text-align: left;
-  }
-  .middle a {
-    line-height: 14pt;
-  }
-}
-.inner {
-  margin-left: auto;
-  margin-right: auto;
-  width: ;
-}
-section {
-  padding: 10px;
-}
-.container {
-  margin-top: 0 !important;
-}
-.me {
-  background: url(http://clnhll.com/me.jpg) center;
-  background-size: 100%;
-  position: relative;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 4px solid #f87391;
-  margin: auto;
-  cursor: pointer;
-}
-@media (max-width: 430px) {
-  .me {
-    width: 150px;
-    height: 150px;
-  }
-}
-.me::after {
-  content: "";
-  background: #fffafa;
-  position: relative;
-  width: 248px;
-  height: 248px;
-  display: block;
-  border-radius: 50%;
-  margin: auto;
-  border: 4px solid #fffafa;
-  box-shadow: 3px 3px 0px #504854;
-  z-index: -1;
-  padding: 2px 0 0 2px;
-}
-@media (max-width: 430px) {
-  .me::after {
-    width: 148px;
-    height: 148px;
-  }
+/* Google Font Loading Fix */
+.wf-asar-loading body {
+  font-family: serif !important;
 }
 body {
   font-family: 'Asar', serif;
   background: linear-gradient(to bottom, #96cbb9, #4bb19d);
-  font-size: 16pt;
   text-align: justify;
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
+  font-size: 16pt;
 }
-a {
+body a {
   display: inline-block;
   transition: all 0.3s ease;
   color: #fffafa;
-  background: linear-gradient(to bottom, #ff8caa, #e96482) ;
+  background: linear-gradient(to bottom, #ff8caa, #e96482);
   background-size: 300px;
   box-shadow: 1px 1px 0px #504854;
   border-radius: 4px;
@@ -133,26 +29,123 @@ a {
   margin: 0 -4px;
   line-height: 20pt;
 }
-a:hover {
+body a:hover {
   transition: all 0.3s ease;
   text-decoration: none;
   box-shadow: 3px 3px 0px #504854;
   color: #fffafa;
 }
-a:focus {
+body a:focus {
   border: none;
   text-decoration: none;
   color: #fffafa;
 }
-a:active {
+body a:active {
   border: none;
   text-decoration: none;
   color: #fffafa;
 }
-.left {
+body a.no {
+  background: none !important;
+  padding: none !important;
+  transition: all 0.3s ease;
+  background: none;
+  box-shadow: none;
+  border-radius: 4px;
+  padding: none;
+  margin: none;
+}
+body .top-button {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  transition: all 0.3s ease;
+  z-index: 100;
+  opacity: .7;
+}
+body .top-button a {
+  background: transparent;
+}
+body .top-button:hover {
+  opacity: 1;
+}
+body .pagenum {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  transition: all 0.3s ease;
+  z-index: 100;
+  opacity: .7;
+}
+body .pagenum a {
+  background: #4bb19d;
+}
+body .pagenum:hover {
+  opacity: 1;
+}
+body .info {
+  opacity: 1;
+}
+body .top-button.ng-hide-add.ng-hide-add-active,
+body .top-button.ng-hide-remove.ng-hide-remove-active,
+body .info.ng-hide-add.ng-hide-add-active,
+body .info.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.3s;
+  transition: all linear 0.3s;
+}
+body .info.ng-hide,
+body .top-button.ng-hide {
+  opacity: 0;
+}
+body .container {
+  margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
 }
-h1 {
+body .container .limit-width {
+  max-width: 800px;
+  margin: 0 auto;
+}
+body .container .limit-width .outer {
+  display: table;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+body .container .limit-width .outer .middle {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 430px) {
+  body .container .limit-width .outer .middle {
+    padding-top: 40px;
+    vertical-align: top;
+    font-size: 13.5pt;
+  }
+}
+@media (max-width: 320px) {
+  body .container .limit-width .outer .middle {
+    padding-top: 10px;
+    vertical-align: top;
+    font-size: 12pt;
+    line-height: 15pt;
+    text-align: left;
+  }
+  body .container .limit-width .outer .middle a {
+    line-height: 14pt;
+  }
+}
+body .container .limit-width .outer .middle .inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+body .container .limit-width .outer .middle .inner .left {
+  width: 100%;
+  cursor: pointer;
+}
+body .container .limit-width .outer .middle .inner .left h1 {
   text-shadow: none;
   color: linear-gradient(to bottom, #ff8caa, #e96482);
   line-height: 100px;
@@ -163,11 +156,11 @@ h1 {
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
-  h1 {
+  body .container .limit-width .outer .middle .inner .left h1 {
     font-size: 50px;
   }
 }
-h1::after {
+body .container .limit-width .outer .middle .inner .left h1::after {
   content: "Colin Hill";
   position: absolute;
   left: 0;
@@ -182,29 +175,81 @@ h1::after {
   transition: text-shadow 0.3s ease, padding 0.3s ease;
 }
 @media (max-width: 430px) {
-  h1::after {
+  body .container .limit-width .outer .middle .inner .left h1::after {
     padding: 1px 0px 0px 2px;
     text-shadow: 1px 1px 0px #504854;
   }
 }
-h1:hover {
+body .container .limit-width .outer .middle .inner .left h1:hover {
   transition: all 0.3s ease;
 }
-h1:hover::after {
+body .container .limit-width .outer .middle .inner .left h1:hover::after {
   padding: 5px 0px 0px 10px;
   text-shadow: 5px 5px 0px #504854;
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
-  h1:hover::after {
+  body .container .limit-width .outer .middle .inner .left h1:hover::after {
     padding: 5px 0px 0px 10px;
     text-shadow: 8px 8px 0px #504854;
   }
 }
-.container {
-  margin-top: 20px;
+body .container .limit-width .outer .middle .inner .left .me {
+  background: url(http://clnhll.com/me.jpg) center;
+  background-size: 100%;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 4px solid #f87391;
+  margin: auto;
+  cursor: pointer;
 }
-.preview {
+@media (max-width: 430px) {
+  body .container .limit-width .outer .middle .inner .left .me {
+    width: 150px;
+    height: 150px;
+  }
+}
+body .container .limit-width .outer .middle .inner .left .me::after {
+  content: "";
+  background: #fffafa;
+  position: relative;
+  width: 248px;
+  height: 248px;
+  display: block;
+  border-radius: 50%;
+  margin: auto;
+  border: 4px solid #fffafa;
+  box-shadow: 3px 3px 0px #504854;
+  z-index: -1;
+  padding: 2px 0 0 2px;
+  transition: all 0.3s ease;
+}
+@media (max-width: 430px) {
+  body .container .limit-width .outer .middle .inner .left .me::after {
+    width: 148px;
+    height: 148px;
+  }
+}
+body .container .limit-width .outer .middle .inner .left .me:hover {
+  transition: all 0.3s ease;
+}
+body .container .limit-width .outer .middle .inner .left .me:hover::after {
+  margin: 5px;
+  box-shadow: 8px 8px 0px #504854;
+  transition: all 0.3s ease;
+}
+@media (max-width: 430px) {
+  body .container .limit-width .outer .middle .inner .left .me:hover::after {
+    padding: 5px 0px 0px 10px;
+    text-shadow: 8px 8px 0px #504854;
+  }
+}
+body .container .limit-width .outer .middle .inner .fontfix {
+  font-family: serif;
+}
+body .container .limit-width .outer .middle .inner .preview {
   position: relative;
   display: block;
   margin-left: auto;
@@ -215,25 +260,15 @@ h1:hover::after {
   padding: 4px;
   background: linear-gradient(to bottom, #ff8caa, #e96482);
 }
-.preview:hover {
+body .container .limit-width .outer .middle .inner .preview:hover {
   transition: all 0.3s ease;
   box-shadow: 3px 3px 0px #504854;
 }
-a.no {
-  background: none !important;
-  padding: none !important;
-  transition: all 0.3s ease;
-  background: none;
-  box-shadow: none;
-  border-radius: 4px;
-  padding: none;
-  margin: none;
-}
-.footer {
+body .footer {
   margin-top: 20px;
   transition: all 0.3s ease;
 }
-.footer h1::after {
+body .footer h1::after {
   content: "Thanks!";
   position: absolute;
   left: 0;
@@ -248,12 +283,12 @@ a.no {
   transition: text-shadow 0.3s ease, padding 0.3s ease;
 }
 @media (max-width: 430px) {
-  .footer h1::after {
+  body .footer h1::after {
     padding: 1px 0px 0px 2px;
     text-shadow: 1px 1px 0px #504854;
   }
 }
-.footer .copy {
+body .footer .copy {
   opacity: .7;
   transition: all 0.3s ease;
   margin-top: 50% !important;
@@ -261,10 +296,7 @@ a.no {
   position: absolute;
   width: 100%;
 }
-.footer .copy:hover {
+body .footer .copy:hover {
   opacity: 1;
   transition: all 0.3s ease;
-}
-.wf-asar-loading body {
-  font-family: serif !important;
 }
