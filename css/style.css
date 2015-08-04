@@ -218,6 +218,7 @@ body .container .limit-width .outer .middle .inner .left .me {
   border: 4px solid #f87391;
   margin: auto;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
   body .container .limit-width .outer .middle .inner .left .me {
@@ -250,8 +251,8 @@ body .container .limit-width .outer .middle .inner .left .me:hover {
   transition: all 0.3s ease;
 }
 body .container .limit-width .outer .middle .inner .left .me:hover::after {
-  margin: 5px;
   box-shadow: 8px 8px 0px #504854;
+  padding: 8px 0 0 8px;
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
