@@ -21,6 +21,7 @@
 }
 
 body {
+  
   font-family: 'Asar', serif;
   background: @bg;
   text-align: justify;
@@ -64,6 +65,54 @@ body {
     border-radius: 4px;
     padding: none;
     margin: none;
+  }
+  h1 {
+    text-shadow: none;
+    transition: all 0.3s ease;
+    color: @accent2;
+    line-height:100px;
+    font-size:100px;
+    background: @accent2;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @media (max-width: 430px) {
+      font-size:50px;
+    }
+    transition:all 0.3s ease;
+    &::after{
+      content: "Colin Hill";
+      position: absolute;
+      left:0;
+      -webkit-text-fill-color: @accent1;
+      -webkit-background-clip: text;
+      z-index: -1;
+      color: @accent1;
+      width: 100%;
+      text-align: center;
+      padding: 2px 0px 0px 4px;
+      text-shadow: 2px 2px 0px @accent;
+      @media (max-width: 430px) {
+        padding: 1px 0px 0px 2px;
+        text-shadow: 1px 1px 0px @accent;
+      }
+      transition:text-shadow 0.3s ease, padding 0.3s ease;
+    }
+
+    &:hover {
+      //font-size: 105px;
+      //margin-bottom: 5px;
+      transition:all 0.3s ease;
+      &::after{
+        padding: 5px 0px 0px 10px;
+        text-shadow: 5px 5px 0px @accent;
+        transition:all 0.3s ease;
+        @media (max-width: 430px) {
+          padding: 5px 0px 0px 10px;
+          text-shadow: 8px 8px 0px @accent;
+        }
+      }
+    }
+
   }
   .top-button {
     position: absolute;
@@ -110,7 +159,7 @@ body {
 
   .container {
     margin: 0 auto; 
-    padding: 0 20px; 
+    padding: 0 20px ; 
     width: 100%;
     
     .limit-width {
@@ -147,54 +196,7 @@ body {
             .left {
               width: 100%;
               cursor: pointer;
-              h1 {
-                text-shadow: none;
-                transition: all 0.3s ease;
-                color: @accent2;
-                line-height:100px;
-                font-size:100px;
-                background: @accent2;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                @media (max-width: 430px) {
-                  font-size:50px;
-                }
-                transition:all 0.3s ease;
-                &::after{
-                  content: "Colin Hill";
-                  position: absolute;
-                  left:0;
-                  -webkit-text-fill-color: @accent1;
-                  -webkit-background-clip: text;
-                  z-index: -1;
-                  color: @accent1;
-                  width: 100%;
-                  text-align: center;
-                  padding: 2px 0px 0px 4px;
-                  text-shadow: 2px 2px 0px @accent;
-                  @media (max-width: 430px) {
-                    padding: 1px 0px 0px 2px;
-                    text-shadow: 1px 1px 0px @accent;
-                  }
-                  transition:text-shadow 0.3s ease, padding 0.3s ease;
-                }
-
-                &:hover {
-                  //font-size: 105px;
-                  //margin-bottom: 5px;
-                  transition:all 0.3s ease;
-                  &::after{
-                    padding: 5px 0px 0px 10px;
-                    text-shadow: 5px 5px 0px @accent;
-                    transition:all 0.3s ease;
-                    @media (max-width: 430px) {
-                      padding: 5px 0px 0px 10px;
-                      text-shadow: 8px 8px 0px @accent;
-                    }
-                  }
-                }
-
-              }
+              
               .me {
                 background: url(http://clnhll.com/me.jpg) center;
                 background-size: 100%;
@@ -276,21 +278,6 @@ body {
     h1 {
       &::after{
         content: "Thanks!";
-        position: absolute;
-        left:0;
-        -webkit-text-fill-color: @accent1;
-        -webkit-background-clip: text;
-        z-index: -1;
-        color: @accent1;
-        width: 100%;
-        text-align: center;
-        padding: 2px 0px 0px 4px;
-        text-shadow: 2px 2px 0px @accent;
-        @media (max-width: 430px) {
-          padding: 1px 0px 0px 2px;
-          text-shadow: 1px 1px 0px @accent;
-        }
-        transition:text-shadow 0.3s ease, padding 0.3s ease;
       }
     }
     .copy {

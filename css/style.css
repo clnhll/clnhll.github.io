@@ -55,6 +55,55 @@ body a.no {
   padding: none;
   margin: none;
 }
+body h1 {
+  text-shadow: none;
+  color: linear-gradient(to bottom, #ff8caa, #e96482);
+  line-height: 100px;
+  font-size: 100px;
+  background: linear-gradient(to bottom, #ff8caa, #e96482);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+@media (max-width: 430px) {
+  body h1 {
+    font-size: 50px;
+  }
+}
+body h1::after {
+  content: "Colin Hill";
+  position: absolute;
+  left: 0;
+  -webkit-text-fill-color: #fffafa;
+  -webkit-background-clip: text;
+  z-index: -1;
+  color: #fffafa;
+  width: 100%;
+  text-align: center;
+  padding: 2px 0px 0px 4px;
+  text-shadow: 2px 2px 0px #504854;
+  transition: text-shadow 0.3s ease, padding 0.3s ease;
+}
+@media (max-width: 430px) {
+  body h1::after {
+    padding: 1px 0px 0px 2px;
+    text-shadow: 1px 1px 0px #504854;
+  }
+}
+body h1:hover {
+  transition: all 0.3s ease;
+}
+body h1:hover::after {
+  padding: 5px 0px 0px 10px;
+  text-shadow: 5px 5px 0px #504854;
+  transition: all 0.3s ease;
+}
+@media (max-width: 430px) {
+  body h1:hover::after {
+    padding: 5px 0px 0px 10px;
+    text-shadow: 8px 8px 0px #504854;
+  }
+}
 body .top-button {
   position: absolute;
   right: 20px;
@@ -99,7 +148,7 @@ body .top-button.ng-hide {
 }
 body .container {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px ;
   width: 100%;
 }
 body .container .limit-width {
@@ -144,55 +193,6 @@ body .container .limit-width .outer .middle .inner {
 body .container .limit-width .outer .middle .inner .left {
   width: 100%;
   cursor: pointer;
-}
-body .container .limit-width .outer .middle .inner .left h1 {
-  text-shadow: none;
-  color: linear-gradient(to bottom, #ff8caa, #e96482);
-  line-height: 100px;
-  font-size: 100px;
-  background: linear-gradient(to bottom, #ff8caa, #e96482);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;
-}
-@media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left h1 {
-    font-size: 50px;
-  }
-}
-body .container .limit-width .outer .middle .inner .left h1::after {
-  content: "Colin Hill";
-  position: absolute;
-  left: 0;
-  -webkit-text-fill-color: #fffafa;
-  -webkit-background-clip: text;
-  z-index: -1;
-  color: #fffafa;
-  width: 100%;
-  text-align: center;
-  padding: 2px 0px 0px 4px;
-  text-shadow: 2px 2px 0px #504854;
-  transition: text-shadow 0.3s ease, padding 0.3s ease;
-}
-@media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left h1::after {
-    padding: 1px 0px 0px 2px;
-    text-shadow: 1px 1px 0px #504854;
-  }
-}
-body .container .limit-width .outer .middle .inner .left h1:hover {
-  transition: all 0.3s ease;
-}
-body .container .limit-width .outer .middle .inner .left h1:hover::after {
-  padding: 5px 0px 0px 10px;
-  text-shadow: 5px 5px 0px #504854;
-  transition: all 0.3s ease;
-}
-@media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left h1:hover::after {
-    padding: 5px 0px 0px 10px;
-    text-shadow: 8px 8px 0px #504854;
-  }
 }
 body .container .limit-width .outer .middle .inner .left .me {
   background: url(http://clnhll.com/me.jpg) center;
@@ -270,23 +270,6 @@ body .footer {
 }
 body .footer h1::after {
   content: "Thanks!";
-  position: absolute;
-  left: 0;
-  -webkit-text-fill-color: #fffafa;
-  -webkit-background-clip: text;
-  z-index: -1;
-  color: #fffafa;
-  width: 100%;
-  text-align: center;
-  padding: 2px 0px 0px 4px;
-  text-shadow: 2px 2px 0px #504854;
-  transition: text-shadow 0.3s ease, padding 0.3s ease;
-}
-@media (max-width: 430px) {
-  body .footer h1::after {
-    padding: 1px 0px 0px 2px;
-    text-shadow: 1px 1px 0px #504854;
-  }
 }
 body .footer .copy {
   opacity: .7;
