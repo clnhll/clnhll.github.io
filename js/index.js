@@ -6,6 +6,12 @@
     $scope.skipTimeout=false;
     WebFont.load({google: {families: ['Asar']}});
     var ready = true;
+    $scope.scrollDown=function(){
+      $scope.skipTimeout=true;
+      if ($scope.snapIndex < $scope.projectData.length+3) {
+        $scope.snapIndex = $scope.snapIndex + 1;
+      }
+    }
     $scope.beforeCallback = function() {
       if ($scope.skipTimeout) {
         $scope.skipTimeout = false;
