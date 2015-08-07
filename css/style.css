@@ -285,7 +285,7 @@ body .container .limit-width .outer .middle .inner .preview {
   margin-right: auto;
 }
 body .container .limit-width .outer .middle .inner .preview img {
-  max-height: 292px;
+  max-height: 300px;
   padding: 4px;
   border-radius: 7px;
   background: linear-gradient(to bottom, #ff8caa, #e96482);
@@ -310,6 +310,8 @@ body .container .limit-width .outer .middle .inner .embed .embed-inner iframe {
   border: 4px solid #ff8caa;
   border-radius: 8px;
   box-shadow: 1px 1px 0px #504854;
+  -webkit-overflow-scrolling: touch !important;
+  overflow: scroll !important;
 }
 body .footer {
   margin-top: 20px;
