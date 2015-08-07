@@ -116,14 +116,14 @@
         snippet: "A live-updating article title search using the Wikipedia JSON API, AngularJS and BootStrap. Clicking the random button will also display a random article on command.",
         src: "http://codepen.io/cln/pen/ZGVXee" 
       },
-      /** {
+      {
       title: "Local Weather",
       link: "weather/",
       img: "http://clnhll.com/weather.png",
       embed: "vOmxJY",
-      snippet: "A little weather applet, again practicing JSON requests, uses your IP address to estimate your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
+      snippet: "A little weather applet, again practicing JSON requests, uses your browser's geolocation to retrieve your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
       git: "https://github.com/clnhll/clnhll.github.io/tree/master/weather" 
-    }, **/
+    }, 
       {
         title: "Retro Calculator",
         link: "calc/",
