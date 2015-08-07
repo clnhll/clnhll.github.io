@@ -76,10 +76,10 @@
             <a class="no" style="margin-left: 0px" ng-href="{{project.link}}">
               <h3>{{project.title}}</h3>
             </a><br />
-            <div ng-show="project.embed" class="embed">
+            <div ng-show="project.embed" class="embed" ng-mouseenter="cancelScroll(true)" ng-mouseleave="cancelScroll(false)">
               <div class="embed-inner">
-                <iframe height='300' scrolling='no' ng-src="{{getSrc(project.embed)}}" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='http://codepen.io/cln'>@cln</a>) on <a href='http://codepen.io'>CodePen</a>.
-</iframe>
+                <iframe height='300' scrolling='yes' ng-src="{{getSrc(project.embed)}}" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='http://codepen.io/cln'>@cln</a>) on <a href='http://codepen.io'>CodePen</a>.
+                </iframe>
                 <!--
                 <p data-height='300' data-theme-id='0' data-slug-hash='{{project.embed}}' data-default-tab='result' data-user='cln' class='codepen'></p>
                 <script async src='//assets.codepen.io/assets/embed/ei.js'></script>
