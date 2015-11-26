@@ -27,7 +27,20 @@
       }
       $scope.$apply()
     }    
-    
+    function animate(elem,style,unit,from,to,time,prop) {
+    if( !elem) return;
+    var start = new Date().getTime(),
+        timer = setInterval(function() {
+            var step = Math.min(1,(new Date().getTime()-start)/time);
+            if (prop) {
+                elem[style] = (from+step*(to-from))+unit;
+            } else {
+                elem.style[style] = (from+step*(to-from))+unit;
+            }
+            if( step == 1) clearInterval(timer);
+        },10);
+    elem.style[style] = from+unit;
+}
     $scope.getSrc = function(item) {
       if (!item) {return ""};
       return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
@@ -36,8 +49,13 @@
     $scope.skipTimeout=false;
     WebFont.load({google: {families: ['Asar']}});
     var ready = true;
-    $scope.scrollDown=function(){
-      window.scroll(0,(1+window.scrollY /     window.innerHeight)*window.innerHeight);
+    $scope.scrollToTop = function() {
+      animate(document.body, 'scrollTop', "", window.scrollY, 0, 100, true);
+    }
+    $scope.scrollDown = function() {
+      animate(document.body, 'scrollTop', "", window.scrollY, (1+window.scrollY /     window.innerHeight)*window.innerHeight, 100, true);
+/*
+      window.scroll(0,(1+window.scrollY /     window.innerHeight)*window.innerHeight);*/
     }
     $scope.projectData=[
       {

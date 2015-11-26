@@ -23,7 +23,7 @@
 
     <body ng-app="MyApp" ng-controller="MainCtrl">
   <div class="top-button" ng-show="currentPage!==0" class="ng-cloak">
-    <a href="#" ng-click="snapIndex=0; skipTimeout=true">to top</a>
+    <a ng-click="scrollToTop()">to top</a>
   </div>
   <div class="pagenum" class="ng-cloak">
     <span class="info" ng-show="currentPage == 0">
