@@ -26,21 +26,48 @@
         $scope.currentPage = nextPage;
       }
       $scope.$apply()
-    }    
+    }
+    function scrollTo(element, to, duration) {
+      var start = element.scrollTop,
+          change = to - start,
+          increment = 20;
+
+      var animateScroll = function(elapsedTime) {        
+        elapsedTime += increment;
+        var position = easeInOut(elapsedTime, start, change, duration);                        
+        element.scrollTop = position; 
+        if (elapsedTime < duration) {
+          setTimeout(function() {
+            animateScroll(elapsedTime);
+          }, increment);
+        }
+      };
+
+      animateScroll(0);
+    }
+
+    function easeInOut(currentTime, start, change, duration) {
+      currentTime /= duration / 2;
+      if (currentTime < 1) {
+        return change / 2 * currentTime * currentTime + start;
+      }
+      currentTime -= 1;
+      return -change / 2 * (currentTime * (currentTime - 2) - 1) + start;
+    }
     function animate(elem,style,unit,from,to,time,prop) {
-    if( !elem) return;
-    var start = new Date().getTime(),
-        timer = setInterval(function() {
+      if( !elem) return;
+      var start = new Date().getTime(),
+          timer = setInterval(function() {
             var step = Math.min(1,(new Date().getTime()-start)/time);
             if (prop) {
-                elem[style] = (from+step*(to-from))+unit;
+              elem[style] = (from+step*(to-from))+unit;
             } else {
-                elem.style[style] = (from+step*(to-from))+unit;
+              elem.style[style] = (from+step*(to-from))+unit;
             }
             if( step == 1) clearInterval(timer);
-        },10);
-    elem.style[style] = from+unit;
-}
+          },10);
+      elem.style[style] = from+unit;
+    }
     $scope.getSrc = function(item) {
       if (!item) {return ""};
       return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
@@ -50,9 +77,11 @@
     WebFont.load({google: {families: ['Asar']}});
     var ready = true;
     $scope.scrollToTop = function() {
-      animate(document.body, 'scrollTop', "", window.scrollY, 0, 100, true);
-    }
+      scrollTo(document.body,0,200);
+/*      animate(document.body, 'scrollTop', "", window.scrollY, 0, 100, true);
+*/    }
     $scope.scrollDown = function() {
+      scrollTo(document.body,(1+window.scrollY/window.innerHeight)*window.innerHeight, 200)
       animate(document.body, 'scrollTop', "", window.scrollY, (1+window.scrollY /     window.innerHeight)*window.innerHeight, 100, true);
 /*
       window.scroll(0,(1+window.scrollY /     window.innerHeight)*window.innerHeight);*/
