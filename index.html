@@ -14,25 +14,24 @@
     
         <link rel="stylesheet" href="css/style.css">
 
+    
+    
+    
   </head>
 
   <body>
 
-    <style>
-  .ng-cloak {
-  display: none !important;
-  }
-</style>
-<body ng-app="MyApp" ng-controller="MainCtrl">
-  <div class="top-button" ng-show="snapIndex!==0" class="ng-cloak">
+    <body ng-app="MyApp" ng-controller="MainCtrl">
+  <div class="top-button" ng-show="currentPage!==0" class="ng-cloak">
     <a href="#" ng-click="snapIndex=0; skipTimeout=true">to top</a>
   </div>
   <div class="pagenum" class="ng-cloak">
-    <span class="info" ng-show="snapIndex==0">
+    <span class="info" ng-show="currentPage == 0">
       scroll down or click &#x261B;</span> 
-    <a href="#" ng-click="scrollDown()">{{snapIndex+1}}/{{projectData.length+4}}</a>
+    <a ng-click="scrollDown()">{{currentPage + 1}}/{{4+projectData.length}}</a>
   </div>
-  <div snapscroll
+
+  <!--<div snapscroll
      fit-window-height
      ng-init="snapIndex=0" 
      snap-index="snapIndex" 
@@ -41,8 +40,8 @@
      snap-duration="300"
      before-snap="beforeCallback(snapIndex)"
      after-snap="afterCallback(snapIndex)"
-     class="container">
- 
+     class="container">-->
+ <div class="container">
   <div class="limit-width">
     <div class="outer">
       <div class="middle">
@@ -124,15 +123,14 @@
         <p class="copy"  class="ng-cloak">2015 - Built with AngularJS and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
       </div>
     </div>
- 
-  </div>
+   </div>
+ <!-- </div>-->
 </body>
     <script src='http://clnhll.com/bower_components/angular/angular.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/less.js/2.2.0/less.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js'></script>
-<script src='http://clnhll.com/bower_components/angular-snapscroll/dist/angular-snapscroll.min.js'></script>
-<script src='http://joelmukuthu.github.io/angular-snapscroll/bower_components/angular-swipe/dist/angular-swipe.min.js'></script>
 <script src='http://code.angularjs.org/1.3.17/angular-animate.js'></script>
+<script src='http://williamngan.github.io/roll/dist/roll.min.js'></script>
 
         <script src="js/index.js"></script>
 

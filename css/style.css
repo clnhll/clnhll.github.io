@@ -10,9 +10,14 @@
 .wf-asar-loading body {
   font-family: serif !important;
 }
+html,
+body {
+  height: 100%;
+  /* background: @bg fixed; */
+}
 body {
   font-family: 'Asar', serif;
-  background: linear-gradient(to bottom, #96cbb9, #4bb19d);
+  background: linear-gradient(to bottom, #96cbb9, #4bb19d) fixed;
   text-align: justify;
   color: #fffafa;
   text-shadow: #504854 1px 1px 0px;
@@ -119,7 +124,7 @@ body h1:hover::after {
   }
 }
 body .top-button {
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 10px;
   transition: all 0.3s ease;
@@ -133,12 +138,13 @@ body .top-button:hover {
   opacity: 1;
 }
 body .pagenum {
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 10px;
   transition: all 0.3s ease;
   z-index: 100;
   opacity: .7;
+  cursor: pointer;
 }
 body .pagenum a {
   background: #4bb19d;
@@ -163,11 +169,15 @@ body .top-button.ng-hide {
 body .container {
   margin: 0 auto;
   padding: 0 20px ;
+  height: 100%;
 }
 body .container .projects {
   height: 100%;
 }
 body .container .limit-width {
+  position: relative;
+  width: 100%;
+  height: 100%;
   max-width: 800px;
   margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('MyApp',['swipe','snapscroll','ngAnimate']).
+  angular.module('MyApp',['ngAnimate']).
   controller('MainCtrl', MainCtrl).
   config(function($sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
@@ -10,11 +10,26 @@
     ]);
   });
   function MainCtrl($scope, $timeout) {
-    var cancel=false;
-    $scope.cancelScroll=function(val) {
-      cancel=val;      
-    }
+    $scope.currentPage = 0;
+    window.onscroll = function(){
+      var nextPage = Math.ceil(window.scrollY/window.innerHeight);
+      if (nextPage !== $scope.currentPage) {
+        if ($scope.loadedItems.length < nextPage && $scope.projectData[nextPage-1]) {
+           $scope.loadedItems.push($scope.projectData[nextPage-1])
+        }
+      }
+        
+        
+      if (nextPage < 0) {
+        $scope.currentPage = 0;
+      } else{
+        $scope.currentPage = nextPage;
+      }
+      $scope.$apply()
+    }    
+    
     $scope.getSrc = function(item) {
+      if (!item) {return ""};
       return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
     }
     $scope.loadedItems=[];
@@ -22,40 +37,8 @@
     WebFont.load({google: {families: ['Asar']}});
     var ready = true;
     $scope.scrollDown=function(){
-      $scope.skipTimeout=true;
-      if ($scope.snapIndex < $scope.projectData.length+3) {
-        $scope.snapIndex = $scope.snapIndex + 1;
-      } else {
-        $scope.snapIndex = $scope.projectData.length+3;
-      }
+      window.scroll(0,(1+window.scrollY /     window.innerHeight)*window.innerHeight);
     }
-    $scope.beforeCallback = function() {
-      if (cancel) {return false;}
-      if ($scope.skipTimeout && 
-          $scope.snapIndex <= $scope.projectData.length+3) {
-        $scope.skipTimeout = false;
-        return true;
-      }
-      if (!ready || $scope.snapIndex >= $scope.projectData.length+4) {
-        return false;
-        $scope.snapIndex = $scope.projectData.length+3
-      } 
-    }
-    $scope.afterCallback = function() {
-      if ($scope.loadedItems.indexOf(
-        $scope.projectData[$scope.snapIndex])==-1 && $scope.projectData[$scope.snapIndex] !== undefined) {
-        $scope.loadedItems.push($scope.projectData[$scope.snapIndex])
-
-
-      }
-      ready=false;
-      $timeout(function(){ready=true},700);
-      if ($scope.snapIndex > $scope.projectData.length+3) {
-        $scope.snapIndex = $scope.projectData.length+3
-      } 
-    }
-
-
     $scope.projectData=[
       {
         title: "Angular Material Todo",
@@ -149,6 +132,5 @@
         src: "http://codepen.io/cln/pen/NqjNZJ" 
       }
     ];
-  }
-
+}
 })()
