@@ -14,8 +14,8 @@
     
     window.onscroll = function(){
       var nextPage = Math.ceil(window.scrollY/window.innerHeight);
-      if (nextPage !== $scope.currentPage) {
-        if ($scope.loadedItems.length < nextPage && $scope.projectData[nextPage-1]) {
+      if (nextPage > $scope.currentPage) {
+        if ($scope.loadedItems.length < $scope.projectData.length && $scope.projectData[nextPage-1] && $scope.loadedItems.indexOf($scope.projectData[nextPage-1]) == -1) {
            $scope.loadedItems.push($scope.projectData[nextPage-1])
         }
       } 
