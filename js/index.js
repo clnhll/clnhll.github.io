@@ -11,15 +11,14 @@
   });
   function MainCtrl($scope, $timeout) {
     $scope.currentPage = 0;
+    
     window.onscroll = function(){
       var nextPage = Math.ceil(window.scrollY/window.innerHeight);
       if (nextPage !== $scope.currentPage) {
         if ($scope.loadedItems.length < nextPage && $scope.projectData[nextPage-1]) {
            $scope.loadedItems.push($scope.projectData[nextPage-1])
         }
-      }
-        
-        
+      } 
       if (nextPage < 0) {
         $scope.currentPage = 0;
       } else{
@@ -27,6 +26,24 @@
       }
       $scope.$apply()
     }
+    document.onkeydown = function(e) {
+      if ((!e.shiftKey && e.keyCode == 32) || e.keyCode == 74) {
+        e.preventDefault();
+        $scope.scrollDown();
+      } else if ((e.shiftKey && e.keyCode == 32) || e.keyCode == 75) {
+        $scope.scrollUp();
+      }
+      if (e.keyCode == 91 || e.keyCode == 93) {
+        $scope.commandPressed = true;
+        $scope.$apply();
+      }
+    };
+  document.onkeyup = function(e) {
+    if (e.keyCode == 91 || e.keyCode == 93) {
+      $scope.commandPressed = false;
+      $scope.$apply();
+    }
+  }
     function scrollTo(element, to, duration) {
       var start = element.scrollTop,
           change = to - start,
@@ -78,13 +95,12 @@
     var ready = true;
     $scope.scrollToTop = function() {
       scrollTo(document.body,0,200);
-/*      animate(document.body, 'scrollTop', "", window.scrollY, 0, 100, true);
-*/    }
+    }
     $scope.scrollDown = function() {
-      scrollTo(document.body,(1+window.scrollY/window.innerHeight)*window.innerHeight, 200)
-      animate(document.body, 'scrollTop', "", window.scrollY, (1+window.scrollY /     window.innerHeight)*window.innerHeight, 100, true);
-/*
-      window.scroll(0,(1+window.scrollY /     window.innerHeight)*window.innerHeight);*/
+      scrollTo(document.body,(1+Math.ceil(window.scrollY/window.innerHeight))*window.innerHeight, 200)
+    }
+    $scope.scrollUp = function() {
+      scrollTo(document.body,Math.ceil(window.scrollY/window.innerHeight - 1)*window.innerHeight, 200)
     }
     $scope.projectData=[
       {
@@ -124,7 +140,7 @@
       },
       {
         title: "Angular Material Twitch.tv Buddy List",
-        link: "twitch/",
+        link: "http://codepen.io/cln/pen/xGmLaq",
         img: "http://clnhll.com/twitch.png",
         embed:"xGmLaq",
         snippet: "This project was an introduction to using a JSON API, which I later went and re-did using AngularJS and Angular Material for practice. It fetches a list of Twitch.tv usernames and displays some information about them.",
@@ -132,7 +148,7 @@
       },
       {
         title: "Angular Emoji Tic-Tac-Toe",
-        link: "tic-tac-toe/",
+        link: "http://codepen.io/cln/pen/eNbRxo",
         img: "http://clnhll.com/tic-tac-toe.png",
         embed: "eNbRxo",
         snippet: "A totally unfair game of tic-tac-toe with an unbeatable AI written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. you may want to use an emoji-friendly browser. Computer lets you play first if you lose, computer plays first if you tie.",
@@ -140,7 +156,7 @@
       },
       {
         title: "Wikipedia Live Search",
-        link: "wiki/",
+        link: "http://codepen.io/cln/pen/ZGVXee",
         img: "http://clnhll.com/wiki.png",
         embed: "ZGVXee",
         snippet: "A live-updating article title search using the Wikipedia JSON API, AngularJS and BootStrap. Clicking the random button will also display a random article on command.",
@@ -148,15 +164,15 @@
       },
       {
       title: "Local Weather",
-      link: "weather/",
+      link: "http://codepen.io/cln/pen/vOmxJY",
       img: "http://clnhll.com/weather.png",
       embed: "vOmxJY",
       snippet: "A little weather applet, again practicing JSON requests, uses your browser's geolocation to retrieve your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
-      git: "https://github.com/clnhll/clnhll.github.io/tree/master/weather" 
+      src: "http://codepen.io/cln/pen/vOmxJY",
     }, 
       {
         title: "Retro Calculator",
-        link: "calc/",
+        link: "http://codepen.io/cln/pen/GJmYKN",
         img: "http://clnhll.com/calc.png",
         embed: "GJmYKN",
         snippet: "This retro-style calculator is super cute and just as functional as any other calculator from the seventies. Allows chaining of operations just like a real calculator would. Is not solar powered, unfortunately.",
@@ -164,7 +180,7 @@
       },
       {
         title: "Pomodoro Timer",
-        link: "pomodoro/",
+        link: "http://codepen.io/cln/pen/zGwWQp",
         img: "http://clnhll.com/pomo.png",
         embed: "zGwWQp",
         snippet: "A cute timer for the pomodoro scheduling program. Input work time and break time and watch as the circle fills up with seconds of your life you'll never get back. Bonus: plays an annoying noise when it gets to zero!",
@@ -172,7 +188,7 @@
       },
       {
         title: "Random Twitter API Abuser",
-        link: "twitter/",
+        link: "http://codepen.io/cln/pen/NqjNZJ",
         img: "http://clnhll.com/tweets.png",
         embed: "NqjNZJ",
         snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of a twitter user of your choice's tweets through an RSS to JSON filter and displays a random one at the press of a button.",

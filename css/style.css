@@ -130,6 +130,7 @@ body .top-button {
   transition: all 0.3s ease;
   z-index: 100;
   opacity: .7;
+  cursor: pointer;
 }
 body .top-button a {
   background: transparent;

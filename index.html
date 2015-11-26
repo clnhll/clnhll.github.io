@@ -25,12 +25,18 @@
   <div class="top-button" ng-show="currentPage!==0" class="ng-cloak">
     <a ng-click="scrollToTop()">to top</a>
   </div>
+  <div class="top-button" ng-show="currentPage==0 && commandPressed">
+    <a>j and k to scroll</a>
+  </div>
+  <div class="top-button" ng-show="currentPage==0 && !commandPressed">
+    <a>&#8984;</a>
+  </div>
   <div class="pagenum" class="ng-cloak">
     <span class="info" ng-show="currentPage == 0">
       scroll down or click &#x261B;</span> 
-    <a ng-click="scrollDown()">{{currentPage + 1}}/{{4+projectData.length}}</a>
+    <a ng-click="scrollDown()">{{currentPage + 1}}/{{4+projectData.length}} 
+    </a>
   </div>
-
   <!--<div snapscroll
      fit-window-height
      ng-init="snapIndex=0" 
