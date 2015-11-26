@@ -15,7 +15,7 @@
       cancel=val;      
     }
     $scope.getSrc = function(item) {
-      return "//codepen.io/cln/embed/" + item + "/?height=300&theme-id=0&default-tab=result";
+      return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
     }
     $scope.loadedItems=[];
     $scope.skipTimeout=false;
