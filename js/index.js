@@ -1,108 +1,9 @@
-(function(){
-  'use strict';
-
-  angular.module('MyApp',['ngAnimate']).
-  controller('MainCtrl', MainCtrl).
-  config(function($sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist([
-      'self',
-      'http://codepen.io/**'
-    ]);
-  });
-  function MainCtrl($scope, $timeout) {
-    $scope.currentPage = 0;
-    
-    window.onscroll = function(){
-      var nextPage = Math.ceil(window.scrollY/window.innerHeight);
-      if (nextPage > $scope.currentPage) {
-        if ($scope.loadedItems.length < $scope.projectData.length && $scope.projectData[nextPage-1] && $scope.loadedItems.indexOf($scope.projectData[nextPage-1]) == -1) {
-           $scope.loadedItems.push($scope.projectData[nextPage-1])
-        }
-      } 
-      if (nextPage < 0) {
-        $scope.currentPage = 0;
-      } else{
-        $scope.currentPage = nextPage;
-      }
-      $scope.$apply()
-    }
-    document.onkeydown = function(e) {
-      if ((!e.shiftKey && e.keyCode == 32) || e.keyCode == 74) {
-        e.preventDefault();
-        $scope.scrollDown();
-      } else if ((e.shiftKey && e.keyCode == 32) || e.keyCode == 75) {
-        $scope.scrollUp();
-      }
-      if (e.keyCode == 91 || e.keyCode == 93) {
-        $scope.commandPressed = true;
-        $scope.$apply();
-      }
-    };
-  document.onkeyup = function(e) {
-    if (e.keyCode == 91 || e.keyCode == 93) {
-      $scope.commandPressed = false;
-      $scope.$apply();
-    }
-  }
-    function scrollTo(element, to, duration) {
-      var start = element.scrollTop,
-          change = to - start,
-          increment = 20;
-
-      var animateScroll = function(elapsedTime) {        
-        elapsedTime += increment;
-        var position = easeInOut(elapsedTime, start, change, duration);                        
-        element.scrollTop = position; 
-        if (elapsedTime < duration) {
-          setTimeout(function() {
-            animateScroll(elapsedTime);
-          }, increment);
-        }
-      };
-
-      animateScroll(0);
-    }
-
-    function easeInOut(currentTime, start, change, duration) {
-      currentTime /= duration / 2;
-      if (currentTime < 1) {
-        return change / 2 * currentTime * currentTime + start;
-      }
-      currentTime -= 1;
-      return -change / 2 * (currentTime * (currentTime - 2) - 1) + start;
-    }
-    function animate(elem,style,unit,from,to,time,prop) {
-      if( !elem) return;
-      var start = new Date().getTime(),
-          timer = setInterval(function() {
-            var step = Math.min(1,(new Date().getTime()-start)/time);
-            if (prop) {
-              elem[style] = (from+step*(to-from))+unit;
-            } else {
-              elem.style[style] = (from+step*(to-from))+unit;
-            }
-            if( step == 1) clearInterval(timer);
-          },10);
-      elem.style[style] = from+unit;
-    }
-    $scope.getSrc = function(item) {
-      if (!item) {return ""};
-      return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
-    }
-    $scope.loadedItems=[];
-    $scope.skipTimeout=false;
-    WebFont.load({google: {families: ['Asar']}});
-    var ready = true;
-    $scope.scrollToTop = function() {
-      scrollTo(document.body,0,200);
-    }
-    $scope.scrollDown = function() {
-      scrollTo(document.body,(1+Math.ceil(window.scrollY/window.innerHeight))*window.innerHeight, 200)
-    }
-    $scope.scrollUp = function() {
-      scrollTo(document.body,Math.ceil(window.scrollY/window.innerHeight - 1)*window.innerHeight, 200)
-    }
-    $scope.projectData=[
+var vm = new Vue({
+  el: 'body',
+  data: {
+    currentPage: 0,
+    loadedItems: [],
+    projectData: [
       {
         title: "Angular Material Todo",
         link: "http://clnhll.com/todo/",
@@ -163,13 +64,13 @@
         src: "http://codepen.io/cln/pen/ZGVXee" 
       },
       {
-      title: "Local Weather",
-      link: "http://codepen.io/cln/pen/vOmxJY",
-      img: "http://clnhll.com/weather.png",
-      embed: "vOmxJY",
-      snippet: "A little weather applet, again practicing JSON requests, uses your browser's geolocation to retrieve your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
-      src: "http://codepen.io/cln/pen/vOmxJY",
-    }, 
+        title: "Local Weather",
+        link: "http://codepen.io/cln/pen/vOmxJY",
+        img: "http://clnhll.com/weather.png",
+        embed: "vOmxJY",
+        snippet: "A little weather applet, again practicing JSON requests, uses your browser's geolocation to retrieve your location, allows switching between imperial and metric. Displays different graphics based on temperature.",
+        src: "http://codepen.io/cln/pen/vOmxJY",
+      }, 
       {
         title: "Retro Calculator",
         link: "http://codepen.io/cln/pen/GJmYKN",
@@ -194,6 +95,81 @@
         snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of a twitter user of your choice's tweets through an RSS to JSON filter and displays a random one at the press of a button.",
         src: "http://codepen.io/cln/pen/NqjNZJ" 
       }
-    ];
-}
-})()
+    ],
+    commandPressed: false
+  },
+  created: function() {
+    window.onscroll = function() {
+      var nextPage = Math.ceil(scrollY/innerHeight);
+      if (nextPage > vm.currentPage) {
+        if (vm.loadedItems.length < vm.projectData.length && 
+            vm.projectData[nextPage-1] && 
+            vm.loadedItems.indexOf(vm.projectData[nextPage-1]) == -1) {
+          vm.loadedItems.push(vm.projectData[nextPage-1])
+        }
+      }
+      if (nextPage < 0) {
+        vm.currentPage = 0;
+      } else {
+        vm.currentPage = nextPage;
+      }
+    }
+    document.onkeydown = function(e) {
+      if ((!e.shiftKey && e.keyCode == 32) || e.keyCode == 74) {
+        e.preventDefault();
+        vm.scrollDown();
+      } else if ((e.shiftKey && e.keyCode == 32) || e.keyCode == 75) {
+        vm.scrollUp();
+      }
+      if (e.keyCode == 91 || e.keyCode == 93) {
+        vm.commandPressed = true;
+      }
+    };
+    document.onkeyup = function(e) {
+      if (e.keyCode == 91 || e.keyCode == 93) {
+        vm.commandPressed = false;
+      }
+    }
+    WebFont.load({google: {families: ['Asar']}});
+  },
+  methods: {
+    scrollTo: function(element, to, duration) {
+      var start = element.scrollTop,
+          change = to - start,
+          increment = 20;
+      var animateScroll = function(elapsedTime) {        
+        elapsedTime += increment;
+        var position = vm.easeInOut(elapsedTime, start, change, duration);                        
+        element.scrollTop = position; 
+        if (elapsedTime < duration) {
+          setTimeout(function() {
+            animateScroll(elapsedTime);
+          }, increment);
+        }
+      };
+      animateScroll(0);
+    },
+    easeInOut: function(currentTime, start, change, duration) {
+      currentTime /= duration / 2;
+      if (currentTime < 1) {
+        return change / 2 * currentTime * currentTime + start;
+      }
+      currentTime -= 1;
+      return -change / 2 * (currentTime * (currentTime - 2) - 1) + start;
+    },
+    getSrc: function(item) {
+      if (!item) {return ""};
+      return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
+    },
+    scrollToTop: function() {
+      vm.scrollTo(document.body,0,200);
+    },
+    scrollDown: function() {
+      console.log('scrolldown');
+      vm.scrollTo(document.body,(1+Math.ceil(scrollY/innerHeight))*innerHeight, 200)
+    },
+    scrollUp: function() {
+      vm.scrollTo(document.body,Math.ceil(scrollY/innerHeight - 1)*innerHeight, 200)
+    }
+  }
+});

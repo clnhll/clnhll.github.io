@@ -156,16 +156,14 @@ body .pagenum:hover {
 body .info {
   opacity: 1;
 }
-body .top-button.ng-hide-add.ng-hide-add-active,
-body .top-button.ng-hide-remove.ng-hide-remove-active,
-body .info.ng-hide-add.ng-hide-add-active,
-body .info.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all linear 0.3s;
-  transition: all linear 0.3s;
+body .button-fade {
+  opacity: 1;
+  transition: all .3s ease;
 }
-body .info.ng-hide,
-body .top-button.ng-hide {
+body .button-fade-enter,
+body .button-fade-leave {
   opacity: 0;
+  transition: all .3s ease;
 }
 body .container {
   margin: 0 auto;

@@ -161,18 +161,16 @@ body {
   .info {
       opacity: 1;
   }
-  .top-button.ng-hide-add.ng-hide-add-active,
-  .top-button.ng-hide-remove.ng-hide-remove-active,
-  .info.ng-hide-add.ng-hide-add-active,
-  .info.ng-hide-remove.ng-hide-remove-active{
-    -webkit-transition: all linear 0.3s;
-    transition: all linear 0.3s;
+  .button-fade {
+    opacity: 1;
+    transition: all .3s ease;
   }
-  .info.ng-hide,
-  .top-button.ng-hide {
+  .button-fade-enter,
+  .button-fade-leave {
     opacity: 0;
-  }  
-
+    transition: all .3s ease;
+  }
+  
   .container {
     margin: 0 auto; 
     padding: 0 20px ; 
