@@ -5,8 +5,8 @@
     <title>Colin Hill</title>
     <meta name="viewport" content="initial-scale=1">
 <style type="text/css">
-.ng-cloak {
-  display: none !important;
+[v-cloak] {
+  display: none;
 }
 </style>
     
@@ -34,7 +34,7 @@
   <div class="pagenum">
     <span class="info" v-if="currentPage == 0" transition="button-fade">
       scroll down or click &#x261B;</span> 
-    <a v-on:click="scrollDown()">{{ currentPage + 1 }}/{{4+projectData.length}} 
+    <a v-on:click="scrollDown()" v-cloak>{{ currentPage + 1 }}/{{4+projectData.length}} 
     </a>
   </div>
   
