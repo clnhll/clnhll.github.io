@@ -157,7 +157,7 @@ body .info {
   opacity: 1;
 }
 body .button-fade {
-  opacity: 1;
+  opacity: .7;
   transition: all .3s ease;
 }
 body .button-fade-enter,

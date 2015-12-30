@@ -22,17 +22,17 @@
   <body>
 
     <body>
-  <div class="top-button" v-if="currentPage!==0" transition="button-fade">
+  <div class="top-button" v-show="currentPage!==0" transition="button-fade">
     <a v-on:click="scrollToTop()">to top</a>
   </div>
-  <div class="top-button" v-if="currentPage==0 && commandPressed" transition="button-fade">
+  <div class="top-button" v-show="currentPage==0 && commandPressed" transition="button-fade">
     <a>j and k to scroll</a>
   </div>
-  <div class="top-button" v-if="currentPage==0 && !commandPressed" transition="button-fade">
+  <div class="top-button" v-show="currentPage==0 && !commandPressed" transition="button-fade">
     <a>&#8984;</a> <!-- &#8984;-->
   </div>
   <div class="pagenum">
-    <span class="info" v-if="currentPage == 0" transition="button-fade">
+    <span class="info" v-show="currentPage == 0" transition="button-fade">
       scroll down or click &#x261B;</span> 
     <a v-on:click="scrollDown()" v-cloak>{{ currentPage + 1 }}/{{4+projectData.length}} 
     </a>
@@ -78,7 +78,7 @@
             <a class="no" style="margin-left: 0px" v-bind:href="project.link">
               <h3>{{project.title}}</h3>
             </a><br />
-            <div v-if="project.embed" class="embed">
+            <div v-show="project.embed" class="embed">
               <div class="embed-inner">
                 <iframe height='450' scrolling='yes' v-bind:src="getSrc(project.embed)" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='http://codepen.io/cln'>@cln</a>) on <a href='http://codepen.io'>CodePen</a>.
                 </iframe>
@@ -89,13 +89,13 @@
                 </a>
               </div>
             </div>
-            <div class="preview" v-if="!project.embed">
+            <div class="preview" v-show="!project.embed">
               <a class="no" v-bind:href="project.link">
                 <img  v-bind:src="project.img" class="img-rounded img-responsive center-block" />
               </a>
             </div>
             <p style="text-align:justify">
-              {{project.snippet}} &#x261E; <a v-bind:src="project.src">Source</a>
+              {{project.snippet}} &#x261E; <a v-bind:href="project.src">Source</a>
             </p>
           </div>
         </div>
