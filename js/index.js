@@ -52,7 +52,7 @@ var vm = new Vue({
         link: "http://codepen.io/cln/pen/eNbRxo",
         img: "http://clnhll.com/tic-tac-toe.png",
         embed: "eNbRxo",
-        snippet: "A totally unfair game of tic-tac-toe with an unbeatable AI written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. you may want to use an emoji-friendly browser. Computer lets you play first if you lose, computer plays first if you tie.",
+        snippet: "A totally unfair game of tic-tac-toe with an unbeatable AI written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. Computer lets you play first if you lose, computer plays first if you tie.",
         src: "http://codepen.io/cln/pen/eNbRxo" 
       },
       {
@@ -159,7 +159,7 @@ var vm = new Vue({
     },
     getSrc: function(item) {
       if (!item) {return ""};
-      return "//codepen.io/cln/embed/preview/" + item + "/?height=450&theme-id=0&default-tab=result";
+      return "//codepen.io/cln/embed/preview/" + item + "/?height=400&theme-id=0&default-tab=result";
     },
     scrollToTop: function() {
       vm.scrollTo(document.body,0,200);
