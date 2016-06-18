@@ -25,11 +25,8 @@
   <div class="top-button" v-show="currentPage!==0" transition="button-fade">
     <a v-on:click="scrollToTop()">to top</a>
   </div>
-  <div class="top-button" v-show="currentPage==0 && commandPressed" transition="button-fade">
+  <div class="top-button" v-show="currentPage==0" transition="button-fade">
     <a>j and k to scroll</a>
-  </div>
-  <div class="top-button" v-show="currentPage==0 && !commandPressed" transition="button-fade">
-    <a>&#8984;</a> <!-- &#8984;-->
   </div>
   <div class="pagenum">
     <span class="info" v-show="currentPage == 0" transition="button-fade">
@@ -37,82 +34,67 @@
     <a v-on:click="scrollDown()" v-cloak>{{ currentPage + 1 }}/{{4+projectData.length}} 
     </a>
   </div>
-  
+
   <div class="container">
-    <div class="limit-width">
-      <div class="outer">
-        <div class="middle">
-          <div class="inner">
-            <div class="left">
-              <div class="text-center">
-                <h1 class="text-center" v-on:click="scrollDown()">Colin Hill</h1>
-                <div class="me" title="scroll down" v-on:click="scrollDown()">
-                </div>
-              </div>
+    <div class="page">
+      <div class="inner">
+        <div class="left">
+          <div class="text-center">
+            <h1 class="text-center" v-on:click="scrollDown()">Colin Hill</h1>
+            <div class="me" title="scroll down" v-on:click="scrollDown()">
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="limit-width">
-      <div class="outer">
-        <div class="middle">
-          <div class="inner">
-            <div class="row">
-              <div class="col-xs-12">
-                <p>&emsp; I'm a former oil and gas engineer currently working as a front-end software developer at <a href="http://iofficecorp.com">iOffice Inc</a>, where I develop hybrid mobile apps for iOS and Android. Additionally, I'm fluent in full-stack development utilizing the MEAN stack <span class="fontfix">(</span>MongoDB, ExpressJS, AngularJS, NodeJS<span class="fontfix">)</span>.</p>
+    <div class="page">
+      <div class="inner">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>&emsp; I'm a former oil and gas engineer currently working as a front-end software developer at <a href="http://iofficecorp.com">iOffice Inc</a>, where I develop hybrid mobile apps for iOS and Android. Additionally, I'm fluent in full-stack development utilizing the MEAN stack <span class="fontfix">(</span>MongoDB, ExpressJS, AngularJS, NodeJS<span class="fontfix">)</span>.</p>
 
-                <p>&emsp; I've gathered some projects on this page that I wrote while learning to program. I did most of these as a part of the <a href='http://freecodecamp.com'>FreeCodeCamp.com</a> curriculum <span class="fontfix">(</span>which I've now completed<span class="fontfix">)</span>, and I'm working on more projects even as you read this. Check out <a href="http://github.com/clnhll/">my GitHub</a>, where you'll find everything on and including this webpage. If you want to talk to me about anything, feel free to get in touch with me <a title="email me!" href="mailto:me@clnhll.com" target="_top">via email!</a></p>
-              </div>
-            </div>
+            <p>&emsp; I've gathered some projects on this page that I wrote while learning to program. I did most of these as a part of the <a href='http://freecodecamp.com'>FreeCodeCamp.com</a> curriculum <span class="fontfix">(</span>which I've now completed<span class="fontfix">)</span>, and I'm working on more projects even as you read this. Check out <a href="http://github.com/clnhll/">my GitHub</a>, where you'll find everything on and including this webpage. If you want to talk to me about anything, feel free to get in touch with me <a title="email me!" href="mailto:me@clnhll.com" target="_top">via email!</a></p>
           </div>
         </div>
       </div>    
     </div>
 
-    <div v-for="project in loadedItems" class="limit-width projects">
-      <div class="outer">
-        <div class="middle">
-          <div class="inner text-center"> 
-            <a class="no" style="margin-left: 0px" v-bind:href="project.link">
-              <h3>{{project.title}}</h3>
-            </a><br />
-            <div v-show="project.embed" class="embed">
-              <div class="embed-inner">
-                <iframe height='450' scrolling='yes' v-bind:src="getSrc(project.embed)" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='http://codepen.io/cln'>@cln</a>) on <a href='http://codepen.io'>CodePen</a>.
-                </iframe>
-              </div>
-              <div class="preview">  
-                <a class="no" v-bind:href="project.link">
-                  <img v-bind:src="project.img" class="img-rounded img-responsive center-block" />  
-                </a>
-              </div>
-            </div>
-            <div class="preview" v-show="!project.embed">
-              <a class="no" v-bind:href="project.link">
-                <img  v-bind:src="project.img" class="img-rounded img-responsive center-block" />
-              </a>
-            </div>
-            <p style="text-align:justify">
-              {{project.snippet}} &#x261E; <a v-bind:href="project.src">Source</a>
-            </p>
+    <div v-for="project in loadedItems" class="page projects">
+      <div class="inner text-center"> 
+        <a class="no" style="margin-left: 0px" v-bind:href="project.link">
+          <h3>{{project.title}}</h3>
+        </a><br />
+        <div v-if="project.embed" class="embed">
+          <div class="embed-inner">
+            <iframe height='400' scrolling='no' v-bind:src="getSrc(project.embed)" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='http://codepen.io/cln'>@cln</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+          </div>
+          <div class="preview">  
+            <a class="no" v-bind:href="project.link">
+              <img v-bind:src="project.img" class="img-rounded img-responsive center-block" />  
+            </a>
           </div>
         </div>
+        <div class="preview" v-if="!project.embed">
+          <a class="no" v-bind:href="project.link">
+            <img  v-bind:src="project.img" class="img-rounded img-responsive center-block" />
+          </a>
+        </div>
+        <p style="text-align:justify">
+          {{project.snippet}} &#x261E; <a v-bind:href="project.src">Source</a>
+        </p>
       </div>
     </div>
 
-    <div class="footer text-center limit-width">
-      <div class="outer">
-        <div class="middle">
-          <div class="inner text-center">
-            <h1>Thanks!</h1>
-            <p>If you appreciated what you saw here and are interested in talking about what I can do, please feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
-          </div>
-          <p class="copy" >2015 - Built with Vue.js and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
-        </div>
+    <div class="footer text-center page">
+      <div class="inner text-center">
+        <h1>Thanks!</h1>
+        <p>If you appreciated what you saw here and are interested in talking about what I can do, please feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
       </div>
+      <p class="copy" >2015 - Built with Vue.js and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
     </div>
+
   </div>
 </body>
     <script src='https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js'></script>

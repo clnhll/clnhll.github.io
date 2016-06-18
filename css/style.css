@@ -171,58 +171,47 @@ body .container {
   height: 100%;
 }
 body .container .projects {
-  height: 100%;
+  height: 100vh;
 }
-body .container .limit-width {
+body .container .page {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   max-width: 800px;
   margin: 0 auto;
 }
-body .container .limit-width .outer {
-  display: table;
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-body .container .limit-width .outer .middle {
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0;
-  padding: 0;
-}
 @media (max-width: 430px) {
-  body .container .limit-width .outer .middle {
-    padding-top: 40px;
+  body .container .page {
     vertical-align: top;
     font-size: 13.5pt;
   }
 }
 @media (max-width: 320px) {
-  body .container .limit-width .outer .middle {
-    padding-top: 10px;
+  body .container .page {
     vertical-align: top;
     font-size: 12pt;
     line-height: 15pt;
     text-align: left;
   }
-  body .container .limit-width .outer .middle a {
+  body .container .page a {
     line-height: 14pt;
   }
 }
-body .container .limit-width .outer .middle .inner {
+body .container .page .inner {
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
   margin-left: auto;
   margin-right: auto;
 }
-body .container .limit-width .outer .middle .inner p {
+body .container .page .inner p {
   margin-top: 0;
 }
-body .container .limit-width .outer .middle .inner .left {
+body .container .page .inner .left {
   width: 100%;
   cursor: pointer;
 }
-body .container .limit-width .outer .middle .inner .left .me {
+body .container .page .inner .left .me {
   background: url(http://clnhll.com/me.jpg) center;
   background-size: 100%;
   position: relative;
@@ -235,12 +224,12 @@ body .container .limit-width .outer .middle .inner .left .me {
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left .me {
+  body .container .page .inner .left .me {
     width: 150px;
     height: 150px;
   }
 }
-body .container .limit-width .outer .middle .inner .left .me::after {
+body .container .page .inner .left .me::after {
   content: "";
   background: #fffafa;
   position: relative;
@@ -256,44 +245,44 @@ body .container .limit-width .outer .middle .inner .left .me::after {
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left .me::after {
+  body .container .page .inner .left .me::after {
     width: 148px;
     height: 148px;
   }
 }
-body .container .limit-width .outer .middle .inner .left .me:hover {
+body .container .page .inner .left .me:hover {
   transition: all 0.3s ease;
 }
-body .container .limit-width .outer .middle .inner .left .me:hover::after {
+body .container .page .inner .left .me:hover::after {
   box-shadow: 8px 8px 0px #504854;
   padding: 8px 0 0 8px;
   transition: all 0.3s ease;
 }
 @media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .left .me:hover::after {
+  body .container .page .inner .left .me:hover::after {
     padding: 5px 0px 0px 10px;
     text-shadow: 8px 8px 0px #504854;
   }
 }
-body .container .limit-width .outer .middle .inner h3 {
+body .container .page .inner h3 {
   margin-bottom: 10px;
 }
 @media (max-width: 320px) {
-  body .container .limit-width .outer .middle .inner h3 {
+  body .container .page .inner h3 {
     font-size: 13pt;
     line-height: 13pt;
   }
 }
-body .container .limit-width .outer .middle .inner .fontfix {
+body .container .page .inner .fontfix {
   font-family: serif;
 }
-body .container .limit-width .outer .middle .inner .preview {
+body .container .page .inner .preview {
   position: relative;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-body .container .limit-width .outer .middle .inner .preview img {
+body .container .page .inner .preview img {
   max-height: 300px;
   padding: 4px;
   border-radius: 7px;
@@ -301,21 +290,21 @@ body .container .limit-width .outer .middle .inner .preview img {
   transition: all 0.3s ease;
   box-shadow: 1px 1px 0px #504854;
 }
-body .container .limit-width .outer .middle .inner .preview img:hover {
+body .container .page .inner .preview img:hover {
   transition: all 0.3s ease;
   box-shadow: 3px 3px 0px #504854;
 }
 @media (min-width: 430px) {
-  body .container .limit-width .outer .middle .inner .embed .preview {
+  body .container .page .inner .embed .preview {
     display: none;
   }
 }
 @media (max-width: 430px) {
-  body .container .limit-width .outer .middle .inner .embed .embed-inner {
+  body .container .page .inner .embed .embed-inner {
     display: none;
   }
 }
-body .container .limit-width .outer .middle .inner .embed .embed-inner iframe {
+body .container .page .inner .embed .embed-inner iframe {
   border: 4px solid #ff8caa;
   border-radius: 8px;
   box-shadow: 1px 1px 0px #504854;
