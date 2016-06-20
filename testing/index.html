@@ -9,6 +9,7 @@
   display: none;
 }
 </style>
+<meta name="apple-mobile-web-app-capable" content="yes">
     
     
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:400,900'>
@@ -22,7 +23,7 @@
 
   <body>
 
-    <body>
+    <body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
   <div class="top-button" v-show="currentPage!==0" transition="button-fade">
     <a v-on:click="scrollToTop()">to top</a>
   </div>
