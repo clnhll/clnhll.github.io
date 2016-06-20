@@ -100,7 +100,7 @@ var vm = new Vue({
   },
   created: function() {
     window.onscroll = function() {
-      var nextPage = Math.ceil(scrollY/innerHeight);
+      var nextPage = Math.ceil(scrollY/screen.availHeight);
       if (nextPage > vm.currentPage) {
         if (vm.loadedItems.length < vm.projectData.length && 
             vm.projectData[nextPage-1] && 
@@ -166,16 +166,16 @@ var vm = new Vue({
     },
     scrollDown: function() {
       console.log('scrolldown');
-      vm.scrollTo(document.body,Math.ceil((1+ scrollY)/innerHeight)*innerHeight, 200)
+      vm.scrollTo(document.body,Math.ceil((1+ scrollY)/screen.availHeight)*screen.availHeight, 200)
     },
     scrollUp: function() {
-      vm.scrollTo(document.body,Math.ceil(scrollY/innerHeight - 1)*innerHeight, 200)
+      vm.scrollTo(document.body,Math.ceil(scrollY/screen.availHeight - 1)*screen.availHeight, 200)
     },
     scrollToAbout: function() {
-      vm.scrollTo(document.body, innerHeight, 200);
+      vm.scrollTo(document.body, screen.availHeight, 200);
     },
     scrollToProjects: function() {
-      vm.scrollTo(document.body, innerHeight*2, 200);
+      vm.scrollTo(document.body, screen.availHeight*2, 200);
     }
   }
 });
