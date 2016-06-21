@@ -40,7 +40,7 @@
 html,
 body {
   height: 100%;
-  background-color: #fff fixed;
+  background-color: #fff;
   font-size: 15px;
   /* background: @bg fixed; */
 }
@@ -95,9 +95,6 @@ body h1 {
   color: #222;
   line-height: 2em;
   font-size: 2em;
-  background: #222;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   margin: 0;
   transition: all 0.3s ease;
 }
@@ -212,13 +209,16 @@ body .footer {
   margin-top: 20px;
   transition: all 0.3s ease;
 }
+body .footer .inner h1 {
+  color: #fff !important;
+}
 body .footer p {
   text-align: center !important;
 }
 body .footer .copy {
-  opacity: .7;
   transition: all 0.3s ease;
   margin-top: 50% !important;
+  padding-top: 90px;
   bottom: -90px;
   position: absolute;
   width: 100%;

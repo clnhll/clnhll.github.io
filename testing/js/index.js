@@ -15,7 +15,7 @@ var vm = new Vue({
         title: "Pollarama",
         link: "http://polltastic.herokuapp.com/",
         img: "http://clnhll.com/polls.png",
-        snippet: "My first MEAN full-stack project is a polling platform, and while aesthetically a little rough around the edges the groundwork is incredibly solid. Featuring Google charts, custom APIs, user authentication and persistent storage.",
+        snippet: "My first MEAN full-stack project is a polling platform featuring Google charts, custom APIs, user authentication and persistent storage.",
         src: "https://github.com/clnhll/polltastic" 
       },
       {
@@ -52,7 +52,7 @@ var vm = new Vue({
         link: "http://codepen.io/cln/pen/eNbRxo",
         img: "http://clnhll.com/tic-tac-toe.png",
         embed: "eNbRxo",
-        snippet: "A totally unfair game of tic-tac-toe with an unbeatable AI written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. Computer lets you play first if you lose, computer plays first if you tie.",
+        snippet: "A totally unfair game of tic-tac-toe with an unbeatable algorithm written with AngularJS. The graphics in this game are emoji so for an optimal experience you should use Safari on a Mac. Computer lets you play first if you lose, computer plays first if you tie.",
         src: "http://codepen.io/cln/pen/eNbRxo" 
       },
       {
@@ -86,21 +86,21 @@ var vm = new Vue({
         embed: "zGwWQp",
         snippet: "A cute timer for the pomodoro scheduling program. Input work time and break time and watch as the circle fills up with seconds of your life you'll never get back. Bonus: plays an annoying noise when it gets to zero!",
         src: "http://codepen.io/cln/pen/zGwWQp" 
-      },
-      {
-        title: "Random Twitter API Abuser",
-        link: "http://codepen.io/cln/pen/NqjNZJ",
-        img: "http://clnhll.com/tweets.png",
-        embed: "NqjNZJ",
-        snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of a twitter user of your choice's tweets through an RSS to JSON filter and displays a random one at the press of a button.",
-        src: "http://codepen.io/cln/pen/NqjNZJ" 
+      // },
+      // {
+      //   title: "Random Twitter API Abuser",
+      //   link: "http://codepen.io/cln/pen/NqjNZJ",
+      //   img: "http://clnhll.com/tweets.png",
+      //   embed: "NqjNZJ",
+      //   snippet: "A rough and dirty hacked-together way of working around Twitter's API auth tokens and tweet display requirements and reading a user's tweets. Pushes an RSS feed of a twitter user of your choice's tweets through an RSS to JSON filter and displays a random one at the press of a button.",
+      //   src: "http://codepen.io/cln/pen/NqjNZJ" 
       }
     ],
     commandPressed: false
   },
   created: function() {
     window.onscroll = function() {
-      var nextPage = Math.ceil(scrollY/screen.availHeight);
+      var nextPage = Math.ceil(scrollY/innerHeight);
       if (nextPage > vm.currentPage) {
         if (vm.loadedItems.length < vm.projectData.length && 
             vm.projectData[nextPage-1] && 
@@ -130,7 +130,7 @@ var vm = new Vue({
         vm.commandPressed = false;
       }
     }
-    WebFont.load({google: {families: ['Asar']}});
+    WebFont.load({google: {families: ['Lato:400,900']}});
   },
   methods: {
     scrollTo: function(element, to, duration) {
@@ -166,16 +166,16 @@ var vm = new Vue({
     },
     scrollDown: function() {
       console.log('scrolldown');
-      vm.scrollTo(document.body,Math.ceil((1+ scrollY)/screen.availHeight)*screen.availHeight, 200)
+      vm.scrollTo(document.body,Math.ceil((1+ scrollY)/innerHeight)*innerHeight, 200)
     },
     scrollUp: function() {
-      vm.scrollTo(document.body,Math.ceil(scrollY/screen.availHeight - 1)*screen.availHeight, 200)
+      vm.scrollTo(document.body,Math.ceil(scrollY/innerHeight - 1)*innerHeight, 200)
     },
     scrollToAbout: function() {
-      vm.scrollTo(document.body, screen.availHeight, 200);
+      vm.scrollTo(document.body, innerHeight, 200);
     },
     scrollToProjects: function() {
-      vm.scrollTo(document.body, screen.availHeight*2, 200);
+      vm.scrollTo(document.body, innerHeight*2, 200);
     }
   }
 });

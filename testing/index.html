@@ -11,8 +11,7 @@
 </style>
     
     
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:400,900'>
-
+    
         <link rel="stylesheet" href="css/style.css">
 
     
@@ -60,7 +59,7 @@
     </div>    
   </div>
 
-  <div v-for="(index, project) in loadedItems" :class="['page',{'odd' : index % 2 == 1, 'even': index % 2 == 0}]">
+  <div v-for="(index, project) in loadedItems" :class="['page','even']">
     <div class="inner text-center"> 
 
       <h3><a class="no" v-bind:href="project.link">{{project.title}}</a></h3>
@@ -87,12 +86,12 @@
     </div>
   </div>
 
-  <div class="footer text-center page even">
+  <div class="footer text-center page odd">
     <div class="inner text-center">
       <h1>Thanks!</h1>
-      <p>If you appreciate what you saw here and are interested in talking about what I can do, please feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
+      <p>If you appreciate what you saw here and are interested in talking about what I can do, feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
     </div>
-    <p class="copy" >2015 - Built with Vue.js and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
+    <p class="copy odd" >2015 - Built with Vue.js and LESS<br /> Creative Commons Attribution 4.0 International or whatever</p>
   </div>
 
 </body>
