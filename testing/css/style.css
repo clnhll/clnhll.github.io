@@ -45,7 +45,7 @@ body {
   /* background: @bg fixed; */
 }
 body {
-  font-family: -apple-system, serif;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
   background: #fff fixed;
   color: #222;
   line-height: 20pt !important;
