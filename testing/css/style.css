@@ -29,6 +29,17 @@
   z-index: 0;
   text-align: center;
   width: 100%;
+  animation: move ease 1s;
+}
+@keyframes move {
+  from {
+    top: 40%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
 }
 .blank {
   z-index: -1;
@@ -134,15 +145,6 @@ body .pagenum:hover {
 }
 body .info {
   opacity: 1;
-}
-body .button-fade {
-  opacity: .7;
-  transition: all .3s ease;
-}
-body .button-fade-enter,
-body .button-fade-leave {
-  opacity: 0;
-  transition: all .3s ease;
 }
 body .page {
   position: relative;
