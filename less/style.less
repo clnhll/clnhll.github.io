@@ -1,63 +1,79 @@
-/* color and gradient vars */
-@accent: rgb(140,132,144)-rgb(60,60,60);
-@accent1: rgb(255,250,250);
-@bg: linear-gradient(to bottom, 
-  rgb(150,203,185), 
-  rgb(75,177,157));
-@accent2: linear-gradient(to bottom, 
-  rgb(248,115,145)+rgb(25,25,25), 
-  rgb(248,115,145)-rgb(15,15,15));
-
+@fg: #222;
+@bg: #fff;
 /* mixins */
 .text {
-  color: @accent1;
-  text-shadow: @accent 1px 1px 0px;
-  font-size: 16pt;
-  line-height: 23pt !important;
-}
+  color: @fg;
+  line-height: 20pt !important;
 
+}
+.odd {
+  background-color: @fg;
+  color: @bg;
+  h3, a {
+    color: @bg !important;
+  }
+  .preview img {
+    background-color: @bg; 
+  }
+}
+.even {
+  background-color: @bg;
+  color: @fg;
+  h3, a {
+    color: @fg !important;
+  }
+}
+.header {
+  position: fixed !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  text-align: center;
+  width: 100%;
+  animation: fadein ease 1s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+    margin-top: -40px;
+  }
+  to {
+    opacity: 1;
+    padding-top: 0px;
+  }
+}
+.blank {
+  z-index: -1
+}
 /* Google Font Loading Fix */
 .wf-asar-loading body { 
-  font-family: serif !important; 
+  font-family: -apple-system, serif !important; 
 }
 html, body {
   height: 100%;
+  background-color: @bg;
+  font-size: 15px;
   /* background: @bg fixed; */
 }
-body { 
-  font-family: 'Asar', serif;
+body {
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
   background: @bg fixed;
-  text-align: justify;
   .text;
   padding: 0;
   margin: 0;
   a {
-    display: inline-block;
-    transition:all 0.3s ease;
-    color: @accent1;
-    background: @accent2;
-    background-size: 300px;
-    box-shadow: 1px 1px 0px @accent;
-    border-radius: 4px;
-    padding: 0 4px;
-    margin: 0 -4px;
-    line-height: 20pt;
-    text-decoration: none;
-    &:hover {
-      transition: all 0.3s ease;
-      text-decoration: none;
-      box-shadow: 3px 3px 0px @accent;
-      color: @accent1;
-    }
+    font-weight: 900;
+    color: @fg;
+    text-decoration: underline;
     &:focus {
       border: none;
       text-decoration: none;
-      color: @accent1;
+      color: @bg;
     }
     &:active {
       border: none;
       text-decoration: none;
-      color: @accent1;
+      color: @fg;
     }
   }
   a.no {
@@ -69,6 +85,7 @@ body {
     border-radius: 4px;
     padding: none;
     margin: none;
+    color: @fg;
   }
   .text-center {
     text-align: center;
@@ -78,53 +95,16 @@ body {
     height: 100%;
   }
   h1 {
-    text-shadow: none;
+    font-family: 'Lato', -apple-system, 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    word-spacing: .2em;
     transition: all 0.3s ease;
-    color: @accent2;
-    line-height:100px;
-    font-size:100px;
-    background: @accent2;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: @fg;
+    line-height:2em;
+    font-size:2em;
     margin:0;
-    font-weight: 300;
-    @media (max-width: 430px) {
-      font-size:50px;
-    }
     transition:all 0.3s ease;
-    &::after{
-      content: "Colin Hill";
-      position: absolute;
-      left:0;
-      -webkit-text-fill-color: @accent1;
-      -webkit-background-clip: text;
-      z-index: -1;
-      color: @accent1;
-      width: 100%;
-      text-align: center;
-      padding: 2px 0px 0px 2px;
-      text-shadow: 2px 2px 0px @accent;
-      @media (max-width: 430px) {
-        padding: 1px 0px 0px 1px;
-        text-shadow: 1px 1px 0px @accent;
-      }
-      transition:text-shadow 0.3s ease, padding 0.3s ease;
-    }
-    &:hover {
-      //font-size: 105px;
-      //margin-bottom: 5px;
-      transition:all 0.3s ease;
-      &::after{
-        padding: 5px 0px 0px 5px;
-        text-shadow: 5px 5px 0px @accent;
-        transition:all 0.3s ease;
-        @media (max-width: 430px) {
-          padding: 5px 0px 0px 5px;
-          text-shadow: 5px 5px 0px @accent;
-        }
-      }
-    }
-
   }
   .top-button {
     position: fixed;
@@ -132,10 +112,14 @@ body {
     top: 10px;
     transition: all 0.3s ease;
     z-index: 100;
-    opacity:.7;
-    cursor: pointer;
+    color: @bg;
+    mix-blend-mode: exclusion;
+
+
     a {
-      background: transparent;
+      cursor: pointer;
+      color: @bg;
+      mix-blend-mode: exclusion;
     }
     &:hover {
       opacity: 1;
@@ -147,10 +131,13 @@ body {
     bottom: 10px;
     transition: all 0.3s ease;
     z-index: 100;
-    opacity:.7;
-    cursor: pointer;
+    color: @bg;
+    mix-blend-mode: exclusion;
+    // opacity:.7;
     a {
-      background: rgb(75,177,157);
+      color: @bg;
+      mix-blend-mode: exclusion;
+      cursor: pointer;
     }
     &:hover {
       opacity: 1;
@@ -169,170 +156,89 @@ body {
     transition: all .3s ease;
   }
 
-  .container {
-    margin: 0 auto; 
-    padding: 0 20px ; 
-    //width: 100%;
-    height: 100%;
-
-
-    .projects {
-      height: 100vh;
-    }
-    .page {
+  margin: 0 auto; 
+  // padding: 0 40px ; 
+  height: 100%;
+  .page {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    margin:0 auto 0 auto !important;
+    .inner {
+      max-width: 800px;
+      padding: 0 40px;
+      top: 50%;
+      transform: translateY(-50%);
       position: relative;
-      width: 100%;
-      height: 100vh;
-      max-width: 800px; 
-      margin:0 auto;
-      @media (max-width: 430px) {
-        // padding-top: 40px;
-        vertical-align: top;
-        font-size: 13.5pt;
-      }
-      @media (max-width: 320px) {
-        a {
-          line-height: 14pt;
-        }
-        // padding-top: 10px;
-        vertical-align: top;
-        font-size: 12pt;
-        line-height: 15pt;
+      margin-left: auto;
+      margin-right: auto;
+      p {
+        margin-top: 0;
         text-align: left;
       }
-      .inner {
-        top: 50%;
-        transform: translateY(-50%);
+      h3 {
+        font-family: 'Lato', -apple-system, 'Helvetica Neue', sans-serif;
+        margin: 0;
+        font-weight: 900;
+        text-transform: uppercase;
+        a {
+          text-decoration: none !important;
+        }
+      }
+
+      .preview {
         position: relative;
+        display: block;
         margin-left: auto;
         margin-right: auto;
-        p {
-          margin-top: 0;
-        }
-        .left {
-          width: 100%;
-          cursor: pointer;          
-          .me {
-            background: url(http://clnhll.com/me.jpg) center;
-            background-size: 100%;
-            position: relative;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 4px solid rgb(248,115,145); //@accent2 !important;
-            margin: auto;
-            cursor: pointer;
-            transition:all 0.3s ease;
-            @media (max-width: 430px) {
-              width: 150px;
-              height: 150px;
-            }
-            //box-shadow: 2px 2px 0px @accent;
-            &::after {
-              content:"";
-              background: @accent1;
-              position: relative;
-              width: 248px;
-              height: 248px;
-              display: block;
-              border-radius: 50%;
-              margin: auto;
-              border: 4px solid @accent1;
-              box-shadow: 3px 3px 0px @accent;
-              z-index: -1;
-              padding: 1px 0 0 1px;
-              @media (max-width: 430px) {
-                width: 148px;
-                height: 148px;
-              }
-              transition:all 0.3s ease;
-            }
-            &:hover {
-              //font-size: 105px;
-              //margin-bottom: 5px;
-              transition:all 0.3s ease;
-              &::after{
-                box-shadow: 8px 8px 0px @accent;
-                transition:all 0.3s ease;
-                padding: 8px 0 0 8px;
-
-
-                @media (max-width: 430px) {
-                  padding: 5px 0px 0px 10px;
-                  text-shadow: 8px 8px 0px @accent;
-                }
-                transition:all 0.3s ease;
-              }
-            }       
-          }
-        }
-        h3 {
-          margin-bottom: 10px;
-          @media (max-width: 320px) {
-            font-size:13pt;
-            line-height: 13pt;
-          }
-        }
-        .fontfix {
-          font-family:serif;
-        }
+        img {
+          max-height: 300px;
+          border-radius: 10px;
+        }       
+      }
+      .embed {
         .preview {
-          position: relative;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          img {
-            max-height: 300px;
-            padding: 4px;
-            border-radius: 7px;
-            background: @accent2;
-            transition: all 0.3s ease;
-            box-shadow: 1px 1px 0px @accent;
-            &:hover {
-              transition:all 0.3s ease;
-              box-shadow: 3px 3px 0px @accent;
-            }
-          }       
-        }
-        .embed {
-          //margin-bottom: -15px;
-
-          .preview {
-            @media (min-width: 430px) {
-              display: none;
-            }
+          @media (min-width: 430px) {
+            display: none;
           }
-          .embed-inner {
-            //margin-bottom: -35px;
-
-            @media (max-width: 430px) {
-              display: none;
-            }
-            iframe {
-              border: 4px solid rgb(248,115,145) + rgb(25,25,25);
-              border-radius: 8px;
-              box-shadow: 1px 1px 0px @accent;
-              -webkit-overflow-scrolling: touch !important; 
-              overflow: scroll !important;
-            }
+        }
+        .embed-inner {
+          @media (max-width: 430px) {
+            display: none;
+          }
+          height: 400px;
+          margin-bottom: 10px;
+          position: relative;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          overflow: hidden;
+          iframe {
+            // box-shadow: 1px 1px 0px @fg;
+            -webkit-overflow-scrolling: touch !important; 
+            overflow: scroll !important;
           }
         }
       }
     }
   }
 
+
   .footer {
-    margin-top: 20px;
-    transition:all 0.3s ease;
-    h1 {
-      &::after{
-        content: "Thanks!";
+    .inner {
+      h1 {
+        color: @bg !important;
       }
     }
+    margin-top: 20px;
+    transition:all 0.3s ease;
+    p {
+      text-align: center !important;
+    }
     .copy {
-      opacity: .7;
       transition:all 0.3s ease;
       margin-top: 50% !important;
+      padding-top: 90px;
       bottom: -90px;
       position: absolute;
       width: 100%;
@@ -340,7 +246,6 @@ body {
         opacity:1;  
         transition:all 0.3s ease;
       }
-
     }
   }
 }
