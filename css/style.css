@@ -1,29 +1,29 @@
 /* mixins */
 .text {
-  color: #222222;
+  color: #222;
   line-height: 20pt !important;
 }
 .wrapper {
-  border: 5px solid #222222;
+  border: 5px solid #222;
 }
 .odd {
-  background-color: #222222;
-  color: #ffffff;
+  background-color: #222;
+  color: #fff;
 }
 .odd h3,
 .odd a {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 .odd .preview img {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .even {
-  background-color: #ffffff;
-  color: #222222;
+  background-color: #fff;
+  color: #222;
 }
 .even h3,
 .even a {
-  color: #222222 !important;
+  color: #222 !important;
 }
 .header {
   position: fixed !important;
@@ -54,14 +54,14 @@
 html,
 body {
   height: 100%;
-  background-color: #ffffff;
+  background-color: #fff;
   font-size: 15px;
   /* background: @bg fixed; */
 }
 body {
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  background: #ffffff fixed;
-  color: #222222;
+  background: #fff fixed;
+  color: #222;
   line-height: 20pt !important;
   padding: 0;
   margin: 0;
@@ -70,18 +70,18 @@ body {
 }
 body a {
   font-weight: 900;
-  color: #222222;
+  color: #222;
   text-decoration: underline;
 }
 body a:focus {
   border: none;
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
 }
 body a:active {
   border: none;
   text-decoration: none;
-  color: #222222;
+  color: #222;
 }
 body a.no {
   background: none !important;
@@ -92,7 +92,7 @@ body a.no {
   border-radius: 4px;
   padding: none;
   margin: none;
-  color: #222222;
+  color: #222;
 }
 body .text-center {
   text-align: center;
@@ -106,7 +106,7 @@ body h1 {
   text-transform: uppercase;
   font-weight: 900;
   word-spacing: .2em;
-  color: #222222;
+  color: #222;
   line-height: 2em;
   font-size: 2em;
   margin: 0;
@@ -118,12 +118,12 @@ body .top-button {
   top: 10px;
   transition: all 0.3s ease;
   z-index: 100;
-  color: #ffffff;
+  color: #fff;
   mix-blend-mode: exclusion;
 }
 body .top-button a {
   cursor: pointer;
-  color: #ffffff;
+  color: #fff;
   mix-blend-mode: exclusion;
 }
 body .top-button:hover {
@@ -135,11 +135,11 @@ body .pagenum {
   bottom: 10px;
   transition: all 0.3s ease;
   z-index: 100;
-  color: #ffffff;
+  color: #fff;
   mix-blend-mode: exclusion;
 }
 body .pagenum a {
-  color: #ffffff;
+  color: #fff;
   mix-blend-mode: exclusion;
   cursor: pointer;
 }
@@ -224,7 +224,7 @@ body .footer {
   transition: all 0.3s ease;
 }
 body .footer .inner h1 {
-  color: #ffffff !important;
+  color: #fff !important;
 }
 body .footer p {
   text-align: center !important;
@@ -236,7 +236,7 @@ body .footer .copy {
   bottom: -90px;
   position: absolute;
   width: 100%;
-  border: 5px solid #222222;
+  border: 5px solid #222;
   margin-left: -5px;
 }
 body .footer .copy:hover {
