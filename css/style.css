@@ -1,32 +1,34 @@
 /* mixins */
-.text {
-  color: #222;
-  line-height: 20pt !important;
-}
 .wrapper {
-  border: 5px solid #222;
+  height: calc(100vh - 20px);
+  width: calc(100vw - 20px);
+  overflow-Y: auto;
+  overflow-x: hidden;
+  border: 10px solid #aa99bb;
+  position: relative;
 }
+
 .odd {
-  background-color: #222;
+  background-color: #aa99bb;
   color: #fff;
 }
-.odd h3,
-.odd a {
+.odd h3, .odd a {
   color: #fff !important;
 }
 .odd .preview img {
   background-color: #fff;
 }
+
 .even {
   background-color: #fff;
-  color: #222;
+  color: #aa99bb;
 }
-.even h3,
-.even a {
-  color: #222 !important;
+.even h3, .even a {
+  color: #aa99bb !important;
 }
+
 .header {
-  position: fixed !important;
+  position: absolute !important;
   top: 50%;
   transform: translateY(-50%);
   z-index: 0;
@@ -34,6 +36,7 @@
   width: 100%;
   animation: fadein ease 1s;
 }
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -47,21 +50,22 @@
 .blank {
   z-index: -1;
 }
+
 /* Google Font Loading Fix */
 .wf-asar-loading body {
   font-family: -apple-system, serif !important;
 }
-html,
-body {
+
+html, body {
   height: 100%;
   background-color: #fff;
   font-size: 15px;
-  /* background: @bg fixed; */
 }
+
 body {
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
   background: #fff fixed;
-  color: #222;
+  color: #aa99bb;
   line-height: 20pt !important;
   padding: 0;
   margin: 0;
@@ -70,7 +74,7 @@ body {
 }
 body a {
   font-weight: 900;
-  color: #222;
+  color: #aa99bb;
   text-decoration: underline;
 }
 body a:focus {
@@ -81,7 +85,7 @@ body a:focus {
 body a:active {
   border: none;
   text-decoration: none;
-  color: #222;
+  color: #aa99bb;
 }
 body a.no {
   background: none !important;
@@ -92,7 +96,7 @@ body a.no {
   border-radius: 4px;
   padding: none;
   margin: none;
-  color: #222;
+  color: #aa99bb;
 }
 body .text-center {
   text-align: center;
@@ -106,7 +110,8 @@ body h1 {
   text-transform: uppercase;
   font-weight: 900;
   word-spacing: .2em;
-  color: #222;
+  transition: all 0.3s ease;
+  color: #aa99bb;
   line-height: 2em;
   font-size: 2em;
   margin: 0;
@@ -115,16 +120,16 @@ body h1 {
 body .top-button {
   position: fixed;
   right: 20px;
-  top: 10px;
+  top: 20px;
   transition: all 0.3s ease;
   z-index: 100;
-  color: #fff;
-  mix-blend-mode: exclusion;
+  color: #aa99bb;
+  background: #fff;
+  padding: 0 8px;
+  border-radius: 4px;
 }
 body .top-button a {
-  cursor: pointer;
-  color: #fff;
-  mix-blend-mode: exclusion;
+  color: #aa99bb;
 }
 body .top-button:hover {
   opacity: 1;
@@ -135,12 +140,13 @@ body .pagenum {
   bottom: 10px;
   transition: all 0.3s ease;
   z-index: 100;
-  color: #fff;
-  mix-blend-mode: exclusion;
+  color: #aa99bb;
+  background: #fff;
+  padding: 0 8px;
+  border-radius: 4px;
 }
 body .pagenum a {
-  color: #fff;
-  mix-blend-mode: exclusion;
+  color: #aa99bb;
   cursor: pointer;
 }
 body .pagenum:hover {
@@ -161,8 +167,8 @@ body .button-fade-leave {
 body .page {
   position: relative;
   display: block;
-  width: 100%;
-  height: 100vh;
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
   margin: 0 auto 0 auto !important;
 }
 body .page .inner {
@@ -236,7 +242,7 @@ body .footer .copy {
   bottom: -90px;
   position: absolute;
   width: 100%;
-  border: 5px solid #222;
+  border: 5px solid #aa99bb;
   margin-left: -5px;
 }
 body .footer .copy:hover {

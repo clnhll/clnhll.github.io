@@ -13,6 +13,7 @@ var throttle = function (callback, limit) {
 var vm = new Vue({
   el: 'body',
   data: {
+    year: new Date().getFullYear(),
     currentPage: 0,
     loadedItems: [],
     projectData: [
@@ -111,8 +112,9 @@ var vm = new Vue({
     commandPressed: false
   },
   created: function() {
-    window.onscroll = function() {
-      var nextPage = Math.ceil(scrollY/innerHeight);
+    const wrapper = document.querySelector('.wrapper');
+    wrapper.onscroll = function() {
+      var nextPage = Math.ceil(wrapper.scrollTop/wrapper.clientHeight);
       if (nextPage > vm.currentPage) {
         if (vm.loadedItems.length < vm.projectData.length && 
             vm.projectData[nextPage-1] && 
@@ -174,20 +176,23 @@ var vm = new Vue({
       return "//codepen.io/cln/embed/preview/" + item + "/?height=400&theme-id=0&default-tab=result";
     },
     scrollToTop: function() {
-      vm.scrollTo(document.body,0,200);
+      vm.scrollTo(document.querySelector('.wrapper'),0,200);
     },
     scrollDown: throttle(function() {
-      console.log('scrolldown');
-      vm.scrollTo(document.body,Math.ceil((1+ scrollY)/innerHeight)*innerHeight, 200)
+      const wrapper = document.querySelector('.wrapper');
+      vm.scrollTo(document.querySelector('.wrapper'),Math.ceil((1+ wrapper.scrollTop)/wrapper.clientHeight)*wrapper.clientHeight, 200)
     }, 300),
     scrollUp: throttle(function() {
-      vm.scrollTo(document.body,Math.ceil(scrollY/innerHeight - 1)*innerHeight, 200)
+      const wrapper = document.querySelector('.wrapper');
+      vm.scrollTo(wrapper,Math.ceil(wrapper.scrollTop/wrapper.clientHeight - 1)*wrapper.clientHeight, 200)
     }, 300),
     scrollToAbout: function() {
-      vm.scrollTo(document.body, innerHeight, 200);
+      const wrapper = document.querySelector('.wrapper');
+      vm.scrollTo(wrapper, wrapper.clientHeight, 200);
     },
     scrollToProjects: function() {
-      vm.scrollTo(document.body, innerHeight*2, 200);
+      const wrapper = document.querySelector('.wrapper');
+      vm.scrollTo(wrapper, wrapper.clientHeight*2, 200);
     }
   }
 });
