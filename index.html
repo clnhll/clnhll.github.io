@@ -1,101 +1,39 @@
 <!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Colin Hill</title>
-  <meta name="viewport" content="initial-scale=1">
-<style type="text/css">
-[v-cloak] {
-  display: none;
-}
-</style>
-  
-  
-      <link rel="stylesheet" href="css/style.css">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Colin Hill</title>
+    <meta name="viewport" content="initial-scale=1">
+    <style type="text/css">
+    body {
+      font-family: 'monaco', 'courier', 'sans-serif';
+      background: #111;
+      color: #ddd;
+    }
+    div {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      left: 50%;
+    }
+    </style>
+  </head>
 
-  
-</head>
-
-<body>
   <body>
-  <div class="wrapper">
-    <div class="top-button" v-if="currentPage!==0" transition="button-fade">
-      <a v-on:click="scrollToTop()">to top</a>
+    <script>
+      const colors = ['#497EE5', '#D24C38', '#E9B53E', '#497EE5', '#529E55', '#D24C38'];
+      setInterval(() => {
+        const letters = document.querySelectorAll('.letter');
+        for (let i = 0; i < 6; i++) {
+          letters[i].style.color = colors[i];
+        }
+        colors.unshift(colors.pop());
+      }, 150)
+    </script>
+    <div>
+      colin hill 🙏<br />
+      swe at <span class="letter">g</span><span class="letter">o</span><span class="letter">o</span><span class="letter">g</span><span class="letter">l</span><span class="letter">e</span><br />
+      me<span>@</span>clnhll.com
     </div>
-    <div class="top-button" v-show="currentPage==0" transition="button-fade">
-      <span>j and k to scroll</span>
-    </div>
-    <div class="pagenum">
-      <span class="info" v-show="currentPage == 0" transition="button-fade">
-        scroll down or click &#x261B;</span> 
-      <a v-on:click="scrollDown()" v-cloak>{{ currentPage + 1 }}/{{4+projectData.length}} 
-      </a>
-    </div>
-
-    <div class="header" v-if="currentPage <= 1">
-      <h1 class="text-center" v-on:click="scrollDown()">Colin Hill</h1>
-      <a v-on:click="scrollToAbout()">about</a> &emsp; <a v-on:click="scrollToProjects()">projects</a> &emsp; <a href="mailto:me@clnhll.com">contact</a>
-    </div>
-
-
-    <div class="page even blank">
-      <div class="inner">
-
-      </div>
-    </div>
-
-    <div class="page odd">
-      <div class="inner">
-        <div class="row">
-          <div class="col-xs-12">
-            <p>&emsp; I'm a former oil and gas engineer currently working as a front-end software developer at <a href="http://iofficecorp.com">iOffice Inc</a>, where I develop Ionic and Ionic 2 hybrid mobile apps for iOS and Android. Additionally, I'm fluent in full-stack development utilizing the MEAN stack (MongoDB, ExpressJS, AngularJS, NodeJS).</p>
-
-            <p>&emsp; I've gathered some projects on this page that I wrote while learning to program. I did most of these as a part of the <a href='https://freecodecamp.com'>FreeCodeCamp.com</a> curriculum (which I've now completed), and I'm working on more projects even as you read this. Check out <a href="https://github.com/clnhll/">my GitHub</a>, where you'll find everything on and including this webpage. If you want to talk to me about anything, feel free to get in touch with me <a title="email me!" href="mailto:me@clnhll.com" target="_top">via email!</a></p>
-          </div>
-        </div>
-      </div>    
-    </div>
-
-    <div v-for="(index, project) in loadedItems" :class="['page','even']">
-      <div class="inner text-center"> 
-
-        <h3><a class="no" v-bind:href="project.link">{{project.title}}</a></h3>
-        <br />
-        <div v-if="project.embed" class="embed">
-          <div class="embed-inner" tabindex="0">
-            <iframe height='400' scrolling='no' v-bind:src="getSrc(project.embed)" frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/cln/pen/RPZYae/'>Colin Hill</a> by Colin (<a href='https://codepen.io/cln'>@cln</a>) on <a href='https://codepen.io'>CodePen</a>.
-            </iframe>
-          </div>
-          <div class="preview">  
-            <a class="no" v-bind:href="project.link">
-              <img v-bind:src="project.img" class="img-rounded img-responsive center-block" />  
-            </a>
-          </div>
-        </div>
-        <div class="preview" v-if="!project.embed">
-          <a class="no" v-bind:href="project.link">
-            <img  v-bind:src="project.img" class="img-rounded img-responsive center-block" />
-          </a>
-        </div>
-        <p>
-          &emsp; {{project.snippet}} &#x261E; <a v-bind:href="project.src">Source</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="footer text-center page odd">
-      <div class="inner text-center">
-        <h1>Thanks!</h1>
-        <p>If you appreciate what you saw here and are interested in talking about what I can do, feel free to email <a title="email me!" href="mailto:me@clnhll.com" target="_top">me@clnhll.com</a>
-      </div>
-      <p class="copy odd">©{{year}} Creative Commons Attribution 4.0 International or whatever<br />Built with Vue.js and SCSS</p>
-    </div>
-  </div>
-</body>
-  <script src='https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js'></script>
-
-    <script  src="js/index.js"></script>
-
-</body>
+  </body>
 </html>
